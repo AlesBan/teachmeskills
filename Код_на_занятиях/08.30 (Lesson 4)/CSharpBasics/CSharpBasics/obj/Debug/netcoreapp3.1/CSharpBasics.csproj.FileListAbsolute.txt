@@ -1,0 +1,14 @@
+D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятиях\08.30 (Lesson 4)\CSharpBasics\CSharpBasics\bin\Debug\netcoreapp3.1\CSharpBasics.exe
+D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятиях\08.30 (Lesson 4)\CSharpBasics\CSharpBasics\bin\Debug\netcoreapp3.1\CSharpBasics.deps.json
+D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятиях\08.30 (Lesson 4)\CSharpBasics\CSharpBasics\bin\Debug\netcoreapp3.1\CSharpBasics.runtimeconfig.json
+D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятиях\08.30 (Lesson 4)\CSharpBasics\CSharpBasics\bin\Debug\netcoreapp3.1\CSharpBasics.runtimeconfig.dev.json
+D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятиях\08.30 (Lesson 4)\CSharpBasics\CSharpBasics\bin\Debug\netcoreapp3.1\CSharpBasics.dll
+D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятиях\08.30 (Lesson 4)\CSharpBasics\CSharpBasics\bin\Debug\netcoreapp3.1\CSharpBasics.pdb
+D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятиях\08.30 (Lesson 4)\CSharpBasics\CSharpBasics\obj\Debug\netcoreapp3.1\CSharpBasics.csproj.AssemblyReference.cache
+D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятиях\08.30 (Lesson 4)\CSharpBasics\CSharpBasics\obj\Debug\netcoreapp3.1\CSharpBasics.GeneratedMSBuildEditorConfig.editorconfig
+D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятиях\08.30 (Lesson 4)\CSharpBasics\CSharpBasics\obj\Debug\netcoreapp3.1\CSharpBasics.AssemblyInfoInputs.cache
+D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятиях\08.30 (Lesson 4)\CSharpBasics\CSharpBasics\obj\Debug\netcoreapp3.1\CSharpBasics.AssemblyInfo.cs
+D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятиях\08.30 (Lesson 4)\CSharpBasics\CSharpBasics\obj\Debug\netcoreapp3.1\CSharpBasics.csproj.CoreCompileInputs.cache
+D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятиях\08.30 (Lesson 4)\CSharpBasics\CSharpBasics\obj\Debug\netcoreapp3.1\CSharpBasics.dll
+D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятиях\08.30 (Lesson 4)\CSharpBasics\CSharpBasics\obj\Debug\netcoreapp3.1\CSharpBasics.pdb
+D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятиях\08.30 (Lesson 4)\CSharpBasics\CSharpBasics\obj\Debug\netcoreapp3.1\CSharpBasics.genruntimeconfig.cache

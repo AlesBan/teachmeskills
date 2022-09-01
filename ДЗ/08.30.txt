@@ -1,0 +1,5 @@
+1. What operation
+2. Parameters
+3. return result
+4. Continue?
++ - * / % остаток Степень
