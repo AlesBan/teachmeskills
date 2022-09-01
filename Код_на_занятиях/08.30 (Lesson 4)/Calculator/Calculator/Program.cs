@@ -104,44 +104,21 @@ namespace Calculator
             double result = 0;
             switch (oper)
             {
-                case "+":
-                    {
-                        result = PlusOper(firstNum, secondNum);
-                        break;
-                    }
-                case "-":
-                    {
-                        result = MinusOper(firstNum, secondNum);
-                        break;
-                    }
-                case "*":
-                    {
-                        result = MultiplyOper(firstNum, secondNum);
-                        break;
-                    }
-                case "/":
-                    {
-                        result = DivideOper(firstNum, secondNum);
-                        break;
-                    }
-                case "%":
-                    {
-                        result = PersentOper(firstNum, secondNum);
-                        break;
-                    }
-                case "^":
-                    {
-                        result = DegreeOper(firstNum, secondNum);
-                        break;
-                    }
-                case "SR":
-                    {
-                        return SquareRootOper(firstNum);
-                    }
-                default:
-                    {
-                        break;
-                    }
+                case "+": result = PlusOper(firstNum, secondNum); break;
+
+                case "-": result = MinusOper(firstNum, secondNum); break;
+
+                case "*": result = MultiplyOper(firstNum, secondNum); break;
+
+                case "/": result = DivideOper(firstNum, secondNum); break;
+
+                case "%": result = PersentOper(firstNum, secondNum); break;
+
+                case "^": result = DegreeOper(firstNum, secondNum); break;
+
+                case "SR": return SquareRootOper(firstNum);
+
+                default: break;
             }
             return $"{firstNum} {oper} {secondNum} = {result}";
         }
