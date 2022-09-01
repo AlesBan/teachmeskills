@@ -24,7 +24,7 @@ namespace Calculator
             {
                 opersStr.Append($"{oper}\t");
             }
-            WriteLine($"Доступные операции: \n{opersStr}\nSR - Squere root\n{ExitOper} - Exit");
+            WriteLine($"Доступные операции: \n{opersStr}\nSR - Square root\n{ExitOper} - Exit");
             StartCalculation();
             WriteLine("Пока.");
         }
@@ -45,7 +45,7 @@ namespace Calculator
                     }
                     else
                     {
-                        WriteLine("!!!Вводите числа!!!");
+                        WriteLine("!!!Вводите операции корректно!!!");
                         continue;
                     }
                 }
