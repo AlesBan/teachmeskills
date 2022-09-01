@@ -6,6 +6,7 @@ namespace Calculator
     static class Program
     {
         public readonly static string[] opers = new string[] { "+", "-", "*", "/", "%", "^", "SR", "Z" };
+        public static string oper = string.Empty;
         public static void Main(string[] args)
         {
             CalculatorFoo();
@@ -14,50 +15,56 @@ namespace Calculator
         public static void CalculatorFoo()
         {
             Write("Приветствую тебя в нашем калькуляторе!");
-            WriteLine("Доступные операции: +\n-\n*\n/\n%\n^\nSquere root - SR\nВыйти - Z");
-            string oper = string.Empty;
-            double firstNum, secondNum;
-            while (oper != "Z")
+            WriteLine("Доступные операции: \n+\n-\n*\n/\n%\n^\nSquere root - SR\nВыйти - Z");
+            StartCalculation();
+            WriteLine("Конец.");
+        }
+        public static void StartCalculation()
+        {
+           
+            while (true)
             {
-                WriteLine("Введите операцию");
-                oper = ReadLine();
-                if (Array.IndexOf(opers, oper) == -1)
+                oper = GetOper();
+                if (oper == "Z")
                 {
-                    WriteLine("Некорректный ввод");
-                    continue;
+                    break;
                 }
                 if (oper == "SR")
                 {
-                    try
-                    {
-                        WriteLine("Введите число");
-                        firstNum = int.Parse(ReadLine());
-                        WriteLine(SquareRootOper(firstNum));
-                        continue;
-                    }
-                    catch
-                    {
-                        WriteLine("!!!Вводите числа!!!");
-                        continue;
-                    }
+                    SquareRootOper();
+                    continue;
                 }
                 try
                 {
-                    WriteLine("Введите первое число");
-                    firstNum = int.Parse(ReadLine());
-                    WriteLine("Введите второе число");
-                    secondNum = int.Parse(ReadLine());
+                    InputNums_Calculate(oper);
                 }
                 catch
                 {
                     WriteLine("!!!Вводите числа!!!");
-                    continue;
                 }
-                Operations(oper, firstNum, secondNum);
             }
-            WriteLine("Конец.");
         }
-        public static void Operations(string oper, double firstNum, double secondNum)
+        public static string GetOper()
+        {
+            WriteLine("Введите операцию");
+            oper = ReadLine();
+            if (Array.IndexOf(opers, oper) == -1)
+            {
+                WriteLine("Некорректный ввод");
+                GetOper();
+            }
+            return oper;
+
+        }
+        public static void InputNums_Calculate(string oper)
+        {
+            WriteLine("Введите первое число");
+            double firstNum = int.Parse(ReadLine());
+            WriteLine("Введите второе число");
+            double secondNum = int.Parse(ReadLine());
+            WriteLine(CaclResult(oper, firstNum, secondNum));
+        }
+        public static string CaclResult(string oper, double firstNum, double secondNum)
         {
             double result = 0;
             switch (oper)
@@ -65,7 +72,7 @@ namespace Calculator
                 case "+":
                     {
                         result = PlusOper(firstNum, secondNum);
-                    break;
+                        break;
                     }
                 case "-":
                     {
@@ -97,7 +104,7 @@ namespace Calculator
                         break;
                     }
             }
-            WriteLine($"{firstNum} {oper} {secondNum} = {result}");
+            return $"{firstNum} {oper} {secondNum} = {result}";
         }
         //  +
         public static double PlusOper(double firstNum, double secondNum)
@@ -131,9 +138,18 @@ namespace Calculator
         }
 
         // SR
-        public static string SquareRootOper(double firstNum)
+        public static void SquareRootOper()
         {
-            return $"Sqare root of {firstNum} = {Math.Sqrt(firstNum)}";
+            try
+            {
+                WriteLine("Введите число");
+                double firstNum = int.Parse(ReadLine());
+                WriteLine($"Sqare root of {firstNum} = {Math.Sqrt(firstNum)}");
+            }
+            catch
+            {
+                WriteLine("!!!Вводите числа!!!");
+            }
         }
     }
 }
