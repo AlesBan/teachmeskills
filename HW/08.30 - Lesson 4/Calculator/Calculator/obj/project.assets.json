@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\TeachMeSkills\\Репозиторий\\teachmeskills\\Код_на_занятиях\\08.30 (Lesson 4)\\Calculator\\Calculator\\Calculator.csproj",
+      "projectUniqueName": "D:\\TeachMeSkills\\teachmeskillsRepository\\HW\\08.30 - Lesson 4\\Calculator\\Calculator\\Calculator.csproj",
       "projectName": "Calculator",
-      "projectPath": "D:\\TeachMeSkills\\Репозиторий\\teachmeskills\\Код_на_занятиях\\08.30 (Lesson 4)\\Calculator\\Calculator\\Calculator.csproj",
+      "projectPath": "D:\\TeachMeSkills\\teachmeskillsRepository\\HW\\08.30 - Lesson 4\\Calculator\\Calculator\\Calculator.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\TeachMeSkills\\Репозиторий\\teachmeskills\\Код_на_занятиях\\08.30 (Lesson 4)\\Calculator\\Calculator\\obj\\",
+      "outputPath": "D:\\TeachMeSkills\\teachmeskillsRepository\\HW\\08.30 - Lesson 4\\Calculator\\Calculator\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
