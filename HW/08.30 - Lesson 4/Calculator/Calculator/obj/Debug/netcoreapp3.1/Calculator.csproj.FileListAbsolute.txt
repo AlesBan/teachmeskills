@@ -12,3 +12,17 @@ D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятия
 D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятиях\08.30 (Lesson 4)\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.dll
 D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятиях\08.30 (Lesson 4)\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.pdb
 D:\TeachMeSkills\Репозиторий\teachmeskills\Код_на_занятиях\08.30 (Lesson 4)\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.genruntimeconfig.cache
+D:\TeachMeSkills\teachmeskillsRepository\HW\08.30 - Lesson 4\Calculator\Calculator\bin\Debug\netcoreapp3.1\Calculator.exe
+D:\TeachMeSkills\teachmeskillsRepository\HW\08.30 - Lesson 4\Calculator\Calculator\bin\Debug\netcoreapp3.1\Calculator.deps.json
+D:\TeachMeSkills\teachmeskillsRepository\HW\08.30 - Lesson 4\Calculator\Calculator\bin\Debug\netcoreapp3.1\Calculator.runtimeconfig.json
+D:\TeachMeSkills\teachmeskillsRepository\HW\08.30 - Lesson 4\Calculator\Calculator\bin\Debug\netcoreapp3.1\Calculator.runtimeconfig.dev.json
+D:\TeachMeSkills\teachmeskillsRepository\HW\08.30 - Lesson 4\Calculator\Calculator\bin\Debug\netcoreapp3.1\Calculator.dll
+D:\TeachMeSkills\teachmeskillsRepository\HW\08.30 - Lesson 4\Calculator\Calculator\bin\Debug\netcoreapp3.1\Calculator.pdb
+D:\TeachMeSkills\teachmeskillsRepository\HW\08.30 - Lesson 4\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.csproj.AssemblyReference.cache
+D:\TeachMeSkills\teachmeskillsRepository\HW\08.30 - Lesson 4\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.GeneratedMSBuildEditorConfig.editorconfig
+D:\TeachMeSkills\teachmeskillsRepository\HW\08.30 - Lesson 4\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.AssemblyInfoInputs.cache
+D:\TeachMeSkills\teachmeskillsRepository\HW\08.30 - Lesson 4\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.AssemblyInfo.cs
+D:\TeachMeSkills\teachmeskillsRepository\HW\08.30 - Lesson 4\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.csproj.CoreCompileInputs.cache
+D:\TeachMeSkills\teachmeskillsRepository\HW\08.30 - Lesson 4\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.dll
+D:\TeachMeSkills\teachmeskillsRepository\HW\08.30 - Lesson 4\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.pdb
+D:\TeachMeSkills\teachmeskillsRepository\HW\08.30 - Lesson 4\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.genruntimeconfig.cache

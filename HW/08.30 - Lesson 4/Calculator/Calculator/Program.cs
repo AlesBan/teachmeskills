@@ -6,84 +6,86 @@ namespace Calculator
 {
     static class Program
     {
-        public readonly static string[] allOperations = new string[] { "+", "-", "*", "/", "%", "^", "SR", $"{ExitOper}" };
+        public readonly static string[] allOperations = new string[] { "+", "-", "*", "/", "%", "^", "КК", $"{ExitOper}" };
         public readonly static string[] opersWithTwoNums = new string[] { "+", "-", "*", "/", "%", "^"};
-        public readonly static string[] opersWithOneNum = new string[] { "SR" };
+        public readonly static string[] opersWithOneNum = new string[] { "КК" };
+        public readonly static string availableOperations = $"Доступные операции: \n{string.Join(" ", allOperations)}\nКК - Square root";
         public const string ExitOper = "Z";
         public readonly static string[] wordsYes = new string[] { "ДА","Да","да","lf","LF","Lf" };
         public readonly static string[] wordsNo = new string[] { "YTN", "Ytn", "ytn", "нет", "Нет", "НЕТ" };
         public static void Main(string[] args)
         {
-            CalculatorFoo();
+            CalculatorGreed();
         }
-        public static void CalculatorFoo()
+        public static void CalculatorGreed()
         {
             WriteLine("Приветствую тебя в нашем калькуляторе!");
-            StringBuilder opersStr = new StringBuilder();
-            foreach(string oper in allOperations)
-            {
-                opersStr.Append($"{oper}\t");
-            }
-            WriteLine($"Доступные операции: \n{opersStr}\nSR - Square root\n{ExitOper} - Exit");
-            StartCalculation();
+            CalculatorMain();
             WriteLine("Пока.");
         }
-        public static void StartCalculation()
+        public static void CalculatorMain()
         {
-            string oper = GetOper();
+            WriteLine($"{availableOperations}\nТакже можете вводить пример сразу\n{ExitOper} - Выход");
+            string oper = GetOperation();
+
             while (oper != ExitOper)
             {
-                try
+                if (oper.Length == 1)
                 {
-                    if (Array.IndexOf(opersWithTwoNums, oper) != -1)
+                    if (Array.IndexOf(allOperations, oper) == -1)
                     {
-                        InputTwoNums_Calculate(oper);
+                        WriteLine("Некорректный ввод");
+                        GetOperation();
                     }
-                    else if (Array.IndexOf(opersWithOneNum, oper) != -1)
-                    {
-                        InputOneNum_Calculate(oper);
-                    }
-                    else
-                    {
-                        WriteLine("!!!Вводите операции корректно!!!");
-                        continue;
-                    }
+                    Calculate_ExampleInParts(oper);
                 }
-                catch
+                else
                 {
-                    WriteLine("!!!Вводите числа!!!");
+                    Calculate_WholeExample(oper);
                 }
                 oper = AskForContinue();
             }
         }
-        public static string AskForContinue()
+        public static string GetOperation()
         {
-            WriteLine("Желаете продолжить? Да/Нет");
-            string choise = ReadLine();
-            if (Array.IndexOf(wordsYes, choise) != -1)
-            {
-                return GetOper();
-            }
-            else if (Array.IndexOf(wordsNo, choise) != -1)
-            {
-                return ExitOper;
-            }
-            else
-            {
-                WriteLine("Некоррекный ввод");
-                return AskForContinue();
-            }
-        }
-        public static string GetOper()
-        {
-            WriteLine("Введите операцию");
+            WriteLine("Введите пример или операцию");
             string oper = ReadLine();
-            if (Array.IndexOf(allOperations, oper) == -1 )
+            return oper;
+        }
+        public static void Calculate_WholeExample(string oper)
+        {
+            string[] ExampleParts = oper.Split(" ");
+            try
+            {
+                WriteLine(CaclResult(ExampleParts[1], int.Parse(ExampleParts[0]), int.Parse(ExampleParts[2])));
+            }
+            catch
             {
                 WriteLine("Некорректный ввод");
-                GetOper();
+                CalculatorMain();
             }
-            return oper;
+        }
+        public static void Calculate_ExampleInParts(string oper)
+        {
+            try
+            {
+                if (Array.IndexOf(opersWithTwoNums, oper) != -1)
+                {
+                    InputTwoNums_Calculate(oper);
+                }
+                else if (Array.IndexOf(opersWithOneNum, oper) != -1)
+                {
+                    InputOneNum_Calculate(oper);
+                }
+                else
+                {
+                    WriteLine("!!!Вводите операции корректно!!!");
+                }
+            }
+            catch
+            {
+                WriteLine("!!!Вводите числа!!!");
+            }
         }
         public static void InputTwoNums_Calculate(string oper)
         {
@@ -101,7 +103,7 @@ namespace Calculator
         }
         public static string CaclResult(string oper, double firstNum, double secondNum)
         {
-            double result = 0;
+            double result;
             switch (oper)
             {
                 case "+": result = PlusOper(firstNum, secondNum); break;
@@ -118,9 +120,31 @@ namespace Calculator
 
                 case "SR": return SquareRootOper(firstNum);
 
-                default: break;
+                default:
+                    {
+                        return "Такую операцию наш калькулятор не поддерживает!";
+                        break;
+                    }
             }
             return $"{firstNum} {oper} {secondNum} = {result}";
+        }
+        public static string AskForContinue()
+        {
+            WriteLine("Желаете продолжить? Да/Нет");
+            string choise = ReadLine();
+            if (Array.IndexOf(wordsYes, choise) != -1)
+            {
+                return GetOperation();
+            }
+            else if (Array.IndexOf(wordsNo, choise) != -1)
+            {
+                return ExitOper;
+            }
+            else
+            {
+                WriteLine("Некоррекный ввод");
+                return AskForContinue();
+            }
         }
         public static double PlusOper(double firstNum, double secondNum)
         {
