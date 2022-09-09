@@ -1,21 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using static System.Console;
 
 namespace Calculator
 {
     static class Program
     {
-        public readonly static string[] allOperations = new string[] { "+", "-", "*", "/", "%", "^", "Sqrt", $"{ExitOper}" };
-        public readonly static string[] allMathOperations = new string[] { "+", "-", "*", "/", "%", "^", "Sqrt"};
-        public readonly static string[] opersWithTwoNums = new string[] { "+", "-", "*", "/", "%", "^"};
-        public readonly static string[] opersWithOneNum = new string[] { "Sqrt" };
-        public readonly static string availableOperations = $"Доступные операции: \n{string.Join(" ", allOperations)}\nSqrt - Квадратный корень\n{ExitOper} - Выход";
-        public const string ExitOper = "Z";
-        public readonly static string[] wordsYes = new string[] { "ДА","Да","да","lf","LF","Lf" };
-        public readonly static string[] wordsNo = new string[] { "YTN", "Ytn", "ytn", "нет", "Нет", "НЕТ" };
         public static void Main(string[] args)
         {
             CalculatorGreed();
@@ -23,7 +14,7 @@ namespace Calculator
         public static void CalculatorGreed()
         {
             WriteLine("Приветствую тебя в нашем калькуляторе!");
-            WriteLine($"{availableOperations}\nТакже можете вводить пример сразу\n{ExitOper} - Выход");
+            WriteLine($"{Constans.availableOperations}\nТакже можете вводить пример сразу\n{Constans.ExitOper} - Выход");
             CalculatorMain();
             WriteLine("Пока.");
         }
@@ -31,13 +22,13 @@ namespace Calculator
         {
             string oper = GetOperation();
 
-            while (oper != ExitOper)
+            while (oper != Constans.ExitOper)
             {
                 if (oper.Length == 1)
                 {
-                    if (Array.IndexOf(allOperations, oper) == -1)
+                    if (Array.IndexOf(Constans.allOperations, oper) == -1)
                     {
-                        IncorrectInput_Message();
+                        Constans.IncorrectInput_Message();
                         GetOperation();
                     }
                     Calculate_ExampleInParts(oper);
@@ -60,7 +51,7 @@ namespace Calculator
             bool oneNum = false;
             string operatorEx = string.Empty;
 
-            foreach (string op in opersWithOneNum.Where(x => example.Contains(x)))
+            foreach (string op in Constans.opersWithOneNum.Where(x => example.Contains(x)))
             {
                 oneNum = true;
                 operatorEx = op;
@@ -71,7 +62,7 @@ namespace Calculator
             }
             else
             {
-                foreach (string oper in allMathOperations.Where(x => example.Contains(x)))
+                foreach (string oper in Constans.allMathOperations.Where(x => example.Contains(x)))
                 {
                     operatorEx = oper;
                 }
@@ -90,18 +81,18 @@ namespace Calculator
                 }
                 catch
                 {
-                    IncorrectInput_Message();
+                    Constans.IncorrectInput_Message();
                     CalculatorMain();
                 }
             }
         }
         public static void Calculate_ExampleInParts(string oper)
         {
-            if (Array.IndexOf(opersWithTwoNums, oper) != -1)
+            if (Array.IndexOf(Constans.opersWithTwoNums, oper) != -1)
             {
                 InputTwoNums_Calculate(oper);
             }
-            else if (Array.IndexOf(opersWithOneNum, oper) != -1)
+            else if (Array.IndexOf(Constans.opersWithOneNum, oper) != -1)
             {
                 InputOneNum_Calculate(oper);
             }
@@ -123,25 +114,24 @@ namespace Calculator
         public static string CaclResult(string oper, double firstNum, double secondNum)
         {
             double result;
-            int decimalPointFirstNum = 1, decimalPointSecondNum = 1;
-            while (firstNum * Math.Pow(10, 1 + decimalPointFirstNum) % 10 != 0) { decimalPointFirstNum++; }
-            while (secondNum * Math.Pow(10, 1 + decimalPointSecondNum) % 10 != 0) { decimalPointSecondNum++; }
+            int decimalPointFirstNum = MathMethods.GetDecimalPoint(firstNum);
+            int decimalPointSecondNum = MathMethods.GetDecimalPoint(secondNum);
             int totalDecimalPoint = decimalPointFirstNum > decimalPointSecondNum ? decimalPointFirstNum : decimalPointSecondNum;
             switch (oper)
             {
-                case "+": result = PlusOper(firstNum, secondNum); break;
+                case "+": result = GetOperationResults.PlusOper(firstNum, secondNum); break;
 
-                case "-": result = MinusOper(firstNum, secondNum); break;
+                case "-": result = GetOperationResults.MinusOper(firstNum, secondNum); break;
 
-                case "*": result = MultiplyOper(firstNum, secondNum); break;
+                case "*": result = GetOperationResults.MultiplyOper(firstNum, secondNum); break;
 
-                case "/": result = DivideOper(firstNum, secondNum); break;
+                case "/": result = GetOperationResults.DivideOper(firstNum, secondNum); break;
 
-                case "%": result = PersentOper(firstNum, secondNum); break;
+                case "%": result = GetOperationResults.PersentOper(firstNum, secondNum); break;
 
-                case "^": result = DegreeOper(firstNum, secondNum); break;
+                case "^": result = GetOperationResults.DegreeOper(firstNum, secondNum); break;
 
-                case "Sqrt": return SquareRootOper(firstNum);
+                case "Sqrt": return GetOperationResults.SquareRootOper(firstNum);
 
                 default:
                     {
@@ -153,69 +143,37 @@ namespace Calculator
         public static string AskForContinue()
         {
             WriteLine("\nЖелаете продолжить? Да/Нет");
-            WriteLine($"Также можете вводить пример сразу\n{availableOperations}\n");
+            WriteLine($"Также можете вводить пример сразу\n{Constans.availableOperations}\n");
             string choise = ReadLine();
-            if (Array.IndexOf(wordsYes, choise) != -1)
+            if (Array.IndexOf(Constans.wordsYes, choise) != -1)
             {
                 return GetOperation();
             }
-            else if (Array.IndexOf(wordsNo, choise) != -1)
+            else if (Array.IndexOf(Constans.wordsNo, choise) != -1)
             {
-                return ExitOper;
+                return Constans.ExitOper;
             }
-            else if (choise == ExitOper)
+            else if (choise == Constans.ExitOper)
             {
-                return ExitOper;
+                return Constans.ExitOper;
             }
             if (choise.Length > 2)
             {
-                foreach (string oper in allMathOperations)
+                foreach (string oper in Constans.allMathOperations)
                 {
                     if (choise.Where(x => x.ToString() == oper) != null)
                     {
                         return choise;
                     }
                 }
-                IncorrectInput_Message();
+                Constans.IncorrectInput_Message();
                 return AskForContinue();
             }
             else
             {
-                IncorrectInput_Message();
+                Constans.IncorrectInput_Message();
                 return AskForContinue();
             }
-        }
-        public static double PlusOper(double firstNum, double secondNum)
-        {
-            return firstNum + secondNum;
-        }
-        public static double MinusOper(double firstNum, double secondNum)
-        {
-            return firstNum - secondNum;
-        }
-        public static double MultiplyOper(double firstNum, double secondNum)
-        {
-            return firstNum * secondNum;
-        }
-        public static double DivideOper(double firstNum, double secondNum)
-        {
-            return firstNum / secondNum;
-        }
-        public static double PersentOper(double firstNum, double secondNum)
-        {
-            return firstNum / 100 * secondNum;
-        }
-        public static double DegreeOper(double firstNum, double secondNum)
-        {
-            return Math.Pow(firstNum, secondNum);
-        }
-        public static string SquareRootOper(double firstNum)
-        {
-            return $"Square root of {firstNum} = {Math.Sqrt(firstNum)}";
-        }
-        public static void IncorrectInput_Message()
-        {
-            WriteLine("Некоррекный ввод");
         }
     }
 }
