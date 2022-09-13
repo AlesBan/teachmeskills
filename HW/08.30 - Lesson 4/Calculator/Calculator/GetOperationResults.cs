@@ -4,7 +4,7 @@ using static System.Console;
 
 namespace Calculator
 {
-    class GetOperationResults
+    static class GetOperationResults
     {
         public static double PlusOper(double firstNum, double secondNum)
         {

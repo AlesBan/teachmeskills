@@ -1,17 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using static System.Console;
 
 namespace Calculator
 {
     static class Program
     {
+        public static List<Operation> operations;
+        public static List<Number> numbers;
+        public static List<Expression> expressions;
+
         public static void Main(string[] args)
         {
-            CalculatorGreed();
+            CalculatorGreet();
         }
-        public static void CalculatorGreed()
+        public static void CalculatorGreet()
         {
             WriteLine("Приветствую тебя в нашем калькуляторе!");
             WriteLine($"{Constans.availableOperations}\nТакже можете вводить пример сразу\n{Constans.ExitOper} - Выход");
@@ -31,11 +36,11 @@ namespace Calculator
                         Constans.IncorrectInput_Message();
                         GetOperation();
                     }
-                    Calculate_ExampleInParts(oper);
+                    Calculate_ExpressionInParts(oper);
                 }
                 else
                 {
-                    Calculate_WholeExample(oper);
+                    Calculate_WholeExpression(oper);
                 }
                 oper = AskForContinue();
             }
@@ -46,47 +51,108 @@ namespace Calculator
             string oper = ReadLine();
             return oper;
         }
-        public static void Calculate_WholeExample(string example)
+        public static void FindAllOperators(string expressionEntered)
         {
-            bool oneNum = false;
-            string operatorEx = string.Empty;
+            operations = new List<Operation>();
+            StringBuilder sbExpression = new StringBuilder(expressionEntered);
+            int operationPriority = 1;
 
-            foreach (string op in Constans.opersWithOneNum.Where(x => example.Contains(x)))
+            foreach (string oper in Constans.allMathOperations)
             {
-                oneNum = true;
-                operatorEx = op;
-            }
-            if (oneNum)
-            {
-                WriteLine(CaclResult(operatorEx, double.Parse(example.Replace(operatorEx,"").Trim()), default));
-            }
-            else
-            {
-                foreach (string oper in Constans.allMathOperations.Where(x => example.Contains(x)))
+                while (sbExpression.ToString().Contains(oper))
                 {
-                    operatorEx = oper;
-                }
-                List<string> ExampleNums = new List<string>
-                {
-                    example[..example.IndexOf(operatorEx)].Trim(),
-                    example[(example.IndexOf(operatorEx)+1)..].Trim()
-                };
-                foreach (string str in ExampleNums)
-                {
-                    WriteLine(str + "\n");
-                }
-                try
-                {
-                    WriteLine(CaclResult(operatorEx, double.Parse(ExampleNums[0]), double.Parse(ExampleNums[1])));
-                }
-                catch
-                {
-                    Constans.IncorrectInput_Message();
-                    CalculatorMain();
+                    Operation operation = new Operation
+                    {
+                        operation_str = oper,
+                        placeIndex_inEntered = expressionEntered.IndexOf(oper),
+                        placeIndex_inEnteredSB = sbExpression.ToString().IndexOf(oper),
+                        priopity = operationPriority,
+                        length = oper.Length,
+                    };
+                    operation.childrenStr = new List<string>
+                    {
+                        expressionEntered[..operation.placeIndex_inEntered],
+                        expressionEntered[operation.placeIndex_inEntered..]
+                    };
+                    operations.Add(operation);
+                    operationPriority++;
+                    sbExpression.Remove(operation.placeIndex_inEnteredSB, operation.length);
                 }
             }
         }
-        public static void Calculate_ExampleInParts(string oper)
+        public static void FindAllNumbers(string expressionEntered)
+        {
+            numbers = new List<Number>();
+            for (int i = 0; i < operations.Count; i++)
+            {
+                if (i == 0 && expressionEntered[..operations[i].placeIndex_inEntered].Length != 0)
+                {
+                    numbers.Add(new Number { num = double.Parse(expressionEntered[..operations[i].placeIndex_inEntered]) });
+                }
+                else if (i < operations.Count - 1 && expressionEntered[operations[i - 1].placeIndex_inEntered..operations[i].placeIndex_inEntered].Length != 0)
+                {
+                    numbers.Add(new Number { num = double.Parse(expressionEntered[(operations[i - 1].placeIndex_inEntered + 1)..operations[i].placeIndex_inEntered]) });
+                }
+                else if (i == operations.Count - 1 && expressionEntered[operations[i].placeIndex_inEntered..].Length != 0) 
+                {
+                    numbers.Add(new Number { num = double.Parse(expressionEntered[(operations[i - 1].placeIndex_inEntered + 1)..operations[i].placeIndex_inEntered]) });
+                    numbers.Add(new Number { num = double.Parse(expressionEntered[(operations[i].placeIndex_inEntered + 1)..]) });
+                }
+            }
+        }
+        public static void Calculate_WholeExpression(string expressionEntered)
+        {
+            bool oneNum = false;
+            bool expHasOperators = true;
+            string operatorEx = string.Empty;
+            Expression expression = new Expression
+            {
+                expression_str = expressionEntered.ToString()
+            };
+            FindAllOperators(expressionEntered);
+            operations = HelpMethods.SortOperations(operations);
+            FindAllNumbers(expressionEntered);
+
+            //while (expHasOperators)
+            //{
+
+            //}
+            //foreach (string op in Constans.opersWithOneNum.Where(x => example.Contains(x)))
+            //{
+            //    oneNum = true;
+            //    operatorEx = op;
+            //}
+            //if (oneNum)
+            //{
+            //    WriteLine(CaclResult(operatorEx, double.Parse(example.Replace(operatorEx,"").Trim()), default));
+            //}
+            //else
+            //{
+            //    foreach (string oper in Constans.allMathOperations.Where(x => example.Contains(x)))
+            //    {
+            //        operatorEx = oper;
+            //    }
+            //    List<string> ExampleNums = new List<string>
+            //    {
+            //        example[..example.IndexOf(operatorEx)].Trim(),
+            //        example[(example.IndexOf(operatorEx)+1)..].Trim()
+            //    };
+            //    foreach (string str in ExampleNums)
+            //    {
+            //        WriteLine(str + "\n");
+            //    }
+            //    try
+            //    {
+            //        WriteLine(CaclResult(operatorEx, double.Parse(ExampleNums[0]), double.Parse(ExampleNums[1])));
+            //    }
+            //    catch
+            //    {
+            //        Constans.IncorrectInput_Message();
+            //        CalculatorMain();
+            //    }
+            //}
+        }
+        public static void Calculate_ExpressionInParts(string oper)
         {
             if (Array.IndexOf(Constans.opersWithTwoNums, oper) != -1)
             {
@@ -131,7 +197,7 @@ namespace Calculator
 
                 case "^": result = GetOperationResults.DegreeOper(firstNum, secondNum); break;
 
-                case "Sqrt": return GetOperationResults.SquareRootOper(firstNum);
+                case "sqrt": return GetOperationResults.SquareRootOper(firstNum);
 
                 default:
                     {

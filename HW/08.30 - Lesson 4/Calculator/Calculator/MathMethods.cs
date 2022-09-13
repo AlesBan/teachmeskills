@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Calculator
 {
-    class MathMethods
+    static class MathMethods
     {
         public static int GetDecimalPoint(double num)
         {
