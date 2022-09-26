@@ -12,6 +12,7 @@ namespace Calculator
     class Operation
     {
         public int priopity = default;
+        public int numOfEntries = default;
         public string operation_str = string.Empty;
         public List<string> childrenStr;
         public int placeIndex_inEntered = default;

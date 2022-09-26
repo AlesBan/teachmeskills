@@ -1,0 +1,14 @@
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\bin\Debug\netcoreapp3.1\InterfaceIntro.exe
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\bin\Debug\netcoreapp3.1\InterfaceIntro.deps.json
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\bin\Debug\netcoreapp3.1\InterfaceIntro.runtimeconfig.json
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\bin\Debug\netcoreapp3.1\InterfaceIntro.runtimeconfig.dev.json
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\bin\Debug\netcoreapp3.1\InterfaceIntro.dll
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\bin\Debug\netcoreapp3.1\InterfaceIntro.pdb
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\obj\Debug\netcoreapp3.1\InterfaceIntro.csproj.AssemblyReference.cache
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\obj\Debug\netcoreapp3.1\InterfaceIntro.GeneratedMSBuildEditorConfig.editorconfig
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\obj\Debug\netcoreapp3.1\InterfaceIntro.AssemblyInfoInputs.cache
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\obj\Debug\netcoreapp3.1\InterfaceIntro.AssemblyInfo.cs
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\obj\Debug\netcoreapp3.1\InterfaceIntro.csproj.CoreCompileInputs.cache
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\obj\Debug\netcoreapp3.1\InterfaceIntro.dll
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\obj\Debug\netcoreapp3.1\InterfaceIntro.pdb
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\obj\Debug\netcoreapp3.1\InterfaceIntro.genruntimeconfig.cache

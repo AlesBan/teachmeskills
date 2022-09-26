@@ -1,0 +1,14 @@
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\15.30 (Lesson 6)\OopFirst\OopFirst\obj\Debug\netcoreapp3.1\OopFirst.csproj.AssemblyReference.cache
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\15.30 (Lesson 6)\OopFirst\OopFirst\obj\Debug\netcoreapp3.1\OopFirst.GeneratedMSBuildEditorConfig.editorconfig
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\15.30 (Lesson 6)\OopFirst\OopFirst\obj\Debug\netcoreapp3.1\OopFirst.AssemblyInfoInputs.cache
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\15.30 (Lesson 6)\OopFirst\OopFirst\obj\Debug\netcoreapp3.1\OopFirst.AssemblyInfo.cs
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\15.30 (Lesson 6)\OopFirst\OopFirst\obj\Debug\netcoreapp3.1\OopFirst.csproj.CoreCompileInputs.cache
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\15.30 (Lesson 6)\OopFirst\OopFirst\bin\Debug\netcoreapp3.1\OopFirst.exe
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\15.30 (Lesson 6)\OopFirst\OopFirst\bin\Debug\netcoreapp3.1\OopFirst.deps.json
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\15.30 (Lesson 6)\OopFirst\OopFirst\bin\Debug\netcoreapp3.1\OopFirst.runtimeconfig.json
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\15.30 (Lesson 6)\OopFirst\OopFirst\bin\Debug\netcoreapp3.1\OopFirst.runtimeconfig.dev.json
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\15.30 (Lesson 6)\OopFirst\OopFirst\bin\Debug\netcoreapp3.1\OopFirst.dll
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\15.30 (Lesson 6)\OopFirst\OopFirst\bin\Debug\netcoreapp3.1\OopFirst.pdb
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\15.30 (Lesson 6)\OopFirst\OopFirst\obj\Debug\netcoreapp3.1\OopFirst.dll
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\15.30 (Lesson 6)\OopFirst\OopFirst\obj\Debug\netcoreapp3.1\OopFirst.pdb
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\15.30 (Lesson 6)\OopFirst\OopFirst\obj\Debug\netcoreapp3.1\OopFirst.genruntimeconfig.cache
