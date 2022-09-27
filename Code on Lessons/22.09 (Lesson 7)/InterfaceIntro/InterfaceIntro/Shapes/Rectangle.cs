@@ -16,7 +16,17 @@ namespace InterfaceIntro.Shapes
         }
         public override void Print()
         {
-
+            var (left, top) = StartIndex;
+            Console.CursorTop = top;
+            for (int i = 0; i < Height; i++)
+            {
+                Console.CursorLeft = left;
+                for (int j = 0; j < Length; j++)
+                {
+                    Console.Write(Symble + " ");
+                }
+                Console.Write("\n");
+            }
         }
     }
 }

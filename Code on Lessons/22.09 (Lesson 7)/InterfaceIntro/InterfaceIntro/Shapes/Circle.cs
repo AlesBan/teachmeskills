@@ -6,45 +6,34 @@ namespace InterfaceIntro.Shapes
 {
     class Circle : Shape
     {
-        public Circle(int length,char symble, (int, int) startIndex) : base(length, symble, startIndex)
+        public (int, int) Center { get; set; }
+        public int Radius { get; set; }
+        public Circle(int radius, char symble, (int, int) center) : base(radius, symble, center)
         {
             Symble = symble;
-            StartIndex = startIndex;
-            Length = length;
+            Center = center;
+            Radius = radius;
         }
+
         public override void Print()
         {
-            var (left, top) = StartIndex;
-            int indent = Length / 2 - 1; 
-            Console.CursorTop = top;
-            for (int i = 0; i < Length; i++)
+            var (CenterX, CenterY) = Center;
+            int x = -Radius;
+            while (x < Radius + 1)
             {
-                if (i == 0 || i == Length - 1)
-                {
-                    Console.CursorLeft = left + Length / 2;
-                    Console.Write(Symble);
-                }
-                else if(i < Length / 2)
-                {
-                    Console.CursorLeft = left + indent;
-                    Console.Write(Symble);
-                    Console.CursorLeft = left + indent + 2*i;
-                    Console.Write(Symble);
-                    indent--;
-                }
-                else
-                {
-                    Console.CursorLeft = left - indent;
-                    Console.Write(Symble);
-                    indent += 2;
-                    Console.CursorLeft = left - indent;
-                    Console.Write(Symble);
-                    indent++;
-                }
-                
-
-                Console.Write("\n");
+                var y = (int)Math.Floor(Math.Sqrt(Radius * Radius - (x * x)));
+                WriteSymleInCurrentPlace(x + CenterX, y + CenterY);
+                y = -y;
+                WriteSymleInCurrentPlace(x + CenterX, y + CenterY);
+                x++;
             }
+            Console.ReadLine();
+
+        }
+        public void WriteSymleInCurrentPlace(int xp, int yp)
+        {
+            Console.SetCursorPosition(xp, yp);
+            Console.Write(Symble);
         }
     }
 }
