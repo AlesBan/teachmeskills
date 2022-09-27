@@ -11,25 +11,28 @@ namespace InterfaceIntro
 
         }
         public static readonly string[] Shapes = new string[] { "Circle", "Square", "Rectangle", "Text" };
+        public const string ConclusionChoise = "OutPut";
+        public const string Exit = "Exit";
+
+        public static readonly string[] AllChoices = new string[] { "Circle", "Square", "Rectangle", "Text", "OutPut", "Exit", "Default" };
         public static void WriteAllAvailableShapes()
         {
-            for (int i = 1; i <= Shapes.Length; i++)
+            for (int i = 1; i <= AllChoices.Length; i++)
             {
-                Console.WriteLine($"{i}) {Shapes[i - 1]}");
+                Console.WriteLine($"{i}) {AllChoices[i - 1]}");
             }
         }
         public static string GetChoice()
         {
             WriteAllAvailableShapes();
             int.TryParse(Console.ReadLine(), out int choise);
-            if (choise > 0 && choise <= Shapes.Length)
+            if (choise > 0 && choise <= AllChoices.Length)
             {
-                return Shapes[choise - 1];
+                return AllChoices[choise - 1];
             }
             else
             {
                 Console.WriteLine("Input is invalid\nTry again");
-
                 return GetChoice();
             }
         }
