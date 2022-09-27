@@ -20,13 +20,16 @@ namespace InterfaceIntro
             switch (choise)
             {
                 case "Circle":
-                    Printer.Print(GetShapeValues.GetNewCircle());
+                    GetShapeValues.GetNewCircle().Print();
                     break;
                 case "Square":
-                    Printer.Print(GetShapeValues.GetNewSquare());
+                    GetShapeValues.GetNewSquare().Print();
                     break;
                 case "Rectangle":
-                    Printer.Print(GetShapeValues.GetNewRectangle());
+                    GetShapeValues.GetNewRectangle().Print();
+                    break;
+                case "Text":
+                    GetShapeValues.GetNewText().Print();
                     break;
             }
         }

@@ -4,15 +4,18 @@ using System.Text;
 
 namespace InterfaceIntro.Shapes
 {
-    class Square : Shape
+    class Square : IPrintTable
     {
-        public Square(int length, char symble, (int, int) startIndex) : base(length, symble, startIndex)
+        public char Symble { get; set; }
+        public (int, int) StartIndex { get; set; }
+        public int Length { get; set; }
+        public Square(int length, char symble, (int, int) startIndex)
         {
             Symble = symble;
             StartIndex = startIndex;
             Length = length;
         }
-        public override void Print()
+        public void Print()
         {
             var (left, top) = StartIndex;
             Console.CursorTop = top;

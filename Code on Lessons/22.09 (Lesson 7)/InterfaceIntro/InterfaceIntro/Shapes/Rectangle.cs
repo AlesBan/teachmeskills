@@ -5,16 +5,20 @@ using System.Text;
 
 namespace InterfaceIntro.Shapes
 {
-    class Rectangle : Shape
+    class Rectangle : IPrintTable
     {
-        public Rectangle(int length, int height, char symble, (int, int) startIndex) : base(length, height, symble, startIndex)
+        public char Symble { get; set; }
+        public (int, int) StartIndex { get; set; }
+        public int Length { get; set; }
+        public int Height { get; set; }
+        public Rectangle(int length, int height, char symble, (int, int) startIndex) 
         {
             Symble = symble;
             StartIndex = startIndex;
             Length = length;
             Height = height;
         }
-        public override void Print()
+        public void Print()
         {
             var (left, top) = StartIndex;
             Console.CursorTop = top;

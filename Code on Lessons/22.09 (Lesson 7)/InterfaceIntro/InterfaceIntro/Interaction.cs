@@ -10,7 +10,7 @@ namespace InterfaceIntro
         {
 
         }
-        public static readonly string[] Shapes = new string[] { "Circle", "Square", "Rectangle" };
+        public static readonly string[] Shapes = new string[] { "Circle", "Square", "Rectangle", "Text" };
         public static void WriteAllAvailableShapes()
         {
             for (int i = 1; i <= Shapes.Length; i++)

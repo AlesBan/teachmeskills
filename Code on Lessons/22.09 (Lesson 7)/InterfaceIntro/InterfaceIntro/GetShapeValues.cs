@@ -11,6 +11,21 @@ namespace InterfaceIntro
         {
 
         }
+        public static Text GetNewText()
+        {
+            string text = string.Empty;
+            (int, int) startIndex;
+
+            while (text == string.Empty)
+            {
+                Console.WriteLine("Enter some text (not empty str)");
+                text = Console.ReadLine();
+            }
+
+            Console.WriteLine("Enter startIndexes");
+            startIndex = GetCenterOrStartPosition();
+            return new Text(text, startIndex);
+        }
         public static Rectangle GetNewRectangle()
         {
             int length, height;
@@ -26,7 +41,7 @@ namespace InterfaceIntro
             Console.WriteLine("Enter symble");
             symble = GetSymble();
 
-            Console.WriteLine("Enter startIndex");
+            Console.WriteLine("Enter startIndexes");
             startIndex = GetCenterOrStartPosition();
             return new Rectangle(length, height, symble, startIndex);
         }
@@ -42,7 +57,7 @@ namespace InterfaceIntro
             Console.WriteLine("Enter symble");
             symble = GetSymble();
 
-            Console.WriteLine("Enter startIndex");
+            Console.WriteLine("Enter startIndexes");
             startIndex = GetCenterOrStartPosition();
             return new Square(length, symble, startIndex);
         }
@@ -82,7 +97,6 @@ namespace InterfaceIntro
                 }
             }
             return (x + Console.CursorLeft, y + Console.CursorTop);
-
         }
         public static char GetSymble()
         {

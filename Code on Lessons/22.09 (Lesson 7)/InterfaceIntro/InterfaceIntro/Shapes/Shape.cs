@@ -25,6 +25,5 @@ namespace InterfaceIntro.Shapes
             StartIndex = startIndex;
         }
         public abstract void Print();
-
     }
 }
