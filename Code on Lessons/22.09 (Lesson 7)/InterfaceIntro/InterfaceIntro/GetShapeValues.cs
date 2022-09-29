@@ -1,6 +1,7 @@
 ﻿using InterfaceIntro.Shapes;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace InterfaceIntro
@@ -10,6 +11,20 @@ namespace InterfaceIntro
         protected GetShapeValues()
         {
 
+        }
+        public static IPrintTable GetNewShape(string className)
+        {
+            Type type = Type.GetType("InterfaceIntro.GetShapeValues");
+            var methods = type.GetMethods();
+            foreach (MethodInfo method in methods)
+            {
+                if (method.Name == $"GetNew{className}")
+                {
+                    GetShapeValues getShapeValues = new GetShapeValues();
+                    return (IPrintTable)method.Invoke(getShapeValues, new object[] { });
+                }
+            }
+            return null;
         }
         public static Text GetNewText()
         {
@@ -21,7 +36,6 @@ namespace InterfaceIntro
                 Console.WriteLine("Enter some text (not empty str)");
                 text = Console.ReadLine();
             }
-
             Console.WriteLine("Enter startIndexes");
             startIndex = GetCenterOrStartPosition();
             return new Text(text, startIndex);
@@ -96,7 +110,7 @@ namespace InterfaceIntro
                     Console.WriteLine("Input is invalid\nTry again");
                 }
             }
-            return (x + Console.CursorLeft, y + Console.CursorTop);
+            return (x, y);
         }
         public static char GetSymble()
         {
@@ -120,7 +134,6 @@ namespace InterfaceIntro
                 }
             }
             return num;
-
         }
     }
 }

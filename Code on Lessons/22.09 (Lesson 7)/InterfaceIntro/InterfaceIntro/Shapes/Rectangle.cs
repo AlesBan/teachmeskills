@@ -18,7 +18,7 @@ namespace InterfaceIntro.Shapes
             Length = length;
             Height = height;
         }
-        public void Print()
+        public int PrintAndReturnMaxHeight()
         {
             var (left, top) = StartIndex;
             Console.CursorTop = top;
@@ -31,6 +31,7 @@ namespace InterfaceIntro.Shapes
                 }
                 Console.Write("\n");
             }
+            return Console.CursorTop;
         }
     }
 }

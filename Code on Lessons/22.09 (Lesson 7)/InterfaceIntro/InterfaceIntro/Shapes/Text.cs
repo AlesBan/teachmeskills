@@ -13,12 +13,13 @@ namespace InterfaceIntro.Shapes
             InputText = inputText;
             StartIndex = stsrtIndex;
         }
-        public void Print()
+        public int PrintAndReturnMaxHeight()
         {
             var (left, top) = StartIndex;
             Console.CursorTop = top;
             Console.CursorLeft = left;
             Console.Write(InputText);
+            return Console.CursorTop;
         }
     }
 }

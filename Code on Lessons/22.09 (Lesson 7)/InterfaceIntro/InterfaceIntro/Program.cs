@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using InterfaceIntro.Shapes;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace InterfaceIntro
 {
@@ -12,67 +16,33 @@ namespace InterfaceIntro
         }
         static void Main()
         {
-            List<IPrintTable> printTables = new List<IPrintTable>();
-            (int,int) CursorDefaultIndexes = (0,0);
-            Console.WriteLine("Hello! Chose one of these shapes to draw");
-            Console.WriteLine("Write num of it");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            List <IPrintTable> printTables = new List<IPrintTable>();
+            IEnumerable<Type> ShapeClasses = ReflectionClass.GetClasses();
+            List<string> AvailableOptions = ProgramHelpers.GetAllChoices(ShapeClasses);
 
-            string choise = Interaction.GetChoice();
-            while (choise != "Exit")
+            ProgramHelpers.Greeting();
+
+            int choiseIndex = Interaction.GetChoice(AvailableOptions);
+            Console.Clear();
+            Console.WriteLine($"{AvailableOptions[choiseIndex]}:");
+            while (choiseIndex != AvailableOptions.IndexOf("Exit"))
             {
-                switch (choise)
+                printTables.Add(GetShapeValues.GetNewShape(AvailableOptions[choiseIndex]));
+                if (AvailableOptions[choiseIndex] == "OutPut")
                 {
-                    case "Circle":
-                        printTables.Add(GetShapeValues.GetNewCircle());
-                        CursorDefaultIndexes = (Console.CursorLeft, Console.CursorTop);
-                        break;
-                    case "Square":
-                        printTables.Add(GetShapeValues.GetNewSquare());
-                        CursorDefaultIndexes = (Console.CursorLeft, Console.CursorTop);
-                        break;
-                    case "Rectangle":
-                        printTables.Add(GetShapeValues.GetNewRectangle());
-                        CursorDefaultIndexes = (Console.CursorLeft, Console.CursorTop);
-                        break;
-                    case "Text":
-                        printTables.Add(GetShapeValues.GetNewText());
-                        CursorDefaultIndexes = (Console.CursorLeft, Console.CursorTop);
-                        break;
-                    case "OutPut":
-                        PrintAllShapes(printTables, CursorDefaultIndexes);
-                        break;
-                    case"Default":
-                        PrintDefaultShapes(printTables, CursorDefaultIndexes);
-                        break; 
+                    Console.Clear();
+                    ProgramHelpers.PrintAllShapes(printTables);
                 }
-                choise = Interaction.GetChoice();
+                else if (AvailableOptions[choiseIndex] == "Default")
+                {
+                    Console.Clear();
+                    ProgramHelpers.PrintDefaultShapes(printTables);
+                }
+                choiseIndex = Interaction.GetChoice(AvailableOptions);
+                Console.Clear();
+                Console.WriteLine($"{AvailableOptions[choiseIndex]}:");
             }
-        }
-        public static void PrintDefaultShapes(List<IPrintTable> printTables, (int, int) CursorIndexes)
-        {
-            printTables.Add(new Square(8, 'h', (5, 5)));
-            printTables.Add(new Rectangle(8, 8, 'r', (1, 2)));
-            printTables.Add(new Circle(8, 't', (15, 15)));
-            printTables.Add(new Text("ABOBABABA", (23, 10)));
-            PrintAllShapes(printTables, CursorIndexes);
-        }
-        public static void PrintAllShapes(List<IPrintTable> printTables, (int, int) CursorIndexes)
-        {
-            var (left, top) = CursorIndexes;
-            int i = 0;
-
-            foreach (IPrintTable printTable in printTables)
-            {
-                i++;
-                ConsoleColor BorderColor = (ConsoleColor)(new Random()).Next(0, 15);
-                Console.ForegroundColor = BorderColor;
-                printTable.Print();
-                Console.CursorLeft = left;
-                Console.CursorTop = top;
-                Console.ResetColor();
-            }
-            Console.CursorLeft = left;
-            Console.CursorTop = top+50;
         }
     }
 }
