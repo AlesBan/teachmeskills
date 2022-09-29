@@ -30,5 +30,21 @@ namespace InterfaceIntro.Shapes
             }
             return Console.CursorTop;
         }
+        public static Square GetNewSquare()
+        {
+            int length;
+            char symble;
+            (int, int) startIndex;
+
+            Console.WriteLine("Enter length");
+            length = GetShapeValues.GetPositiveIntNum();
+
+            Console.WriteLine("Enter symble");
+            symble = GetShapeValues.GetSymble();
+
+            Console.WriteLine("Enter startIndexes");
+            startIndex = GetShapeValues.GetCenterOrStartPosition();
+            return new Square(length, symble, startIndex);
+        }
     }
 }

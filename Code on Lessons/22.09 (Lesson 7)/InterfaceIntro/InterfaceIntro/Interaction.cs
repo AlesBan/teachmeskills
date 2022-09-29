@@ -15,16 +15,16 @@ namespace InterfaceIntro
         public const string Exit = "Exit";
         public static readonly string[] additionalyChoices = new string[] { "OutPut", "Exit", "Default" };
         public static readonly string[] AllChoices = new string[] { "Circle", "Square", "Rectangle", "Text", "OutPut", "Exit", "Default" };
-        public static void WriteAllAvailableShapes()
+        public static void WriteAllAvailableShapes(List<string> AvailableOptions)
         {
-            for (int i = 1; i <= AllChoices.Length; i++)
+            for (int i = 1; i <= AvailableOptions.Count; i++)
             {
-                Console.WriteLine($"{i}) {AllChoices[i - 1]}");
+                Console.WriteLine($"{i}) {AvailableOptions[i - 1]}");
             }
         }
         public static int GetChoice(List<string> AvailableOptions)
         {
-            WriteAllAvailableShapes();
+            WriteAllAvailableShapes(AvailableOptions);
             int.TryParse(Console.ReadLine(), out int choise);
             if (choise > 0 && choise <= AvailableOptions.Count)
             {

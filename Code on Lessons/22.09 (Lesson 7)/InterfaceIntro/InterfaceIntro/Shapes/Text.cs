@@ -21,5 +21,19 @@ namespace InterfaceIntro.Shapes
             Console.Write(InputText);
             return Console.CursorTop;
         }
+        public static Text GetNewText()
+        {
+            string text = string.Empty;
+            (int, int) startIndex;
+
+            while (text == string.Empty)
+            {
+                Console.WriteLine("Enter some text (not empty str)");
+                text = Console.ReadLine();
+            }
+            Console.WriteLine("Enter startIndexes");
+            startIndex = GetShapeValues.GetCenterOrStartPosition();
+            return new Text(text, startIndex);
+        }
     }
 }

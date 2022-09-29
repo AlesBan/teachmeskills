@@ -13,7 +13,9 @@ namespace InterfaceIntro.Shapes
         {
             Type[] types;
             IEnumerable<Type> ShapeClasses = new List<Type>();
-            var files = Directory.GetFiles(Environment.CurrentDirectory, "*.dll");
+            var files = Directory.GetFiles(Directory.GetCurrentDirectory());
+            
+            //var files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.dll");
             foreach (var file in files)
             {
                 try

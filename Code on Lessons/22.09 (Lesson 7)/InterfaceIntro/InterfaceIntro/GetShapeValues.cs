@@ -14,7 +14,7 @@ namespace InterfaceIntro
         }
         public static IPrintTable GetNewShape(string className)
         {
-            Type type = Type.GetType("InterfaceIntro.GetShapeValues");
+            Type type = Type.GetType($"InterfaceIntro.Shapes.{className}");
             var methods = type.GetMethods();
             foreach (MethodInfo method in methods)
             {
@@ -26,71 +26,7 @@ namespace InterfaceIntro
             }
             return null;
         }
-        public static Text GetNewText()
-        {
-            string text = string.Empty;
-            (int, int) startIndex;
-
-            while (text == string.Empty)
-            {
-                Console.WriteLine("Enter some text (not empty str)");
-                text = Console.ReadLine();
-            }
-            Console.WriteLine("Enter startIndexes");
-            startIndex = GetCenterOrStartPosition();
-            return new Text(text, startIndex);
-        }
-        public static Rectangle GetNewRectangle()
-        {
-            int length, height;
-            char symble;
-            (int, int) startIndex;
-
-            Console.WriteLine("Enter length");
-            length = GetPositiveIntNum();
-
-            Console.WriteLine("Enter height");
-            height = GetPositiveIntNum();
-
-            Console.WriteLine("Enter symble");
-            symble = GetSymble();
-
-            Console.WriteLine("Enter startIndexes");
-            startIndex = GetCenterOrStartPosition();
-            return new Rectangle(length, height, symble, startIndex);
-        }
-        public static Square GetNewSquare()
-        {
-            int length;
-            char symble;
-            (int, int) startIndex;
-
-            Console.WriteLine("Enter length");
-            length = GetPositiveIntNum();
-
-            Console.WriteLine("Enter symble");
-            symble = GetSymble();
-
-            Console.WriteLine("Enter startIndexes");
-            startIndex = GetCenterOrStartPosition();
-            return new Square(length, symble, startIndex);
-        }
-        public static Circle GetNewCircle()
-        {
-            int radius;
-            char symble;
-            (int, int) center;
-
-            Console.WriteLine("Enter radius");
-            radius = GetPositiveIntNum();
-
-            Console.WriteLine("Enter symble");
-            symble = GetSymble();
-
-            Console.WriteLine("Enter center");
-            center = GetCenterOrStartPosition();
-            return new Circle(radius, symble, center);
-        }
+        
         public static (int, int) GetCenterOrStartPosition()
         {
             int x = 0, y = 0;

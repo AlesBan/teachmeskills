@@ -1,0 +1,13 @@
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\29.09 (Lesson 9)\AttributsIntro\AttributsIntro\bin\Debug\netcoreapp3.1\AttributsIntro.exe
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\29.09 (Lesson 9)\AttributsIntro\AttributsIntro\bin\Debug\netcoreapp3.1\AttributsIntro.deps.json
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\29.09 (Lesson 9)\AttributsIntro\AttributsIntro\bin\Debug\netcoreapp3.1\AttributsIntro.runtimeconfig.json
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\29.09 (Lesson 9)\AttributsIntro\AttributsIntro\bin\Debug\netcoreapp3.1\AttributsIntro.runtimeconfig.dev.json
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\29.09 (Lesson 9)\AttributsIntro\AttributsIntro\bin\Debug\netcoreapp3.1\AttributsIntro.dll
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\29.09 (Lesson 9)\AttributsIntro\AttributsIntro\bin\Debug\netcoreapp3.1\AttributsIntro.pdb
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\29.09 (Lesson 9)\AttributsIntro\AttributsIntro\obj\Debug\netcoreapp3.1\AttributsIntro.GeneratedMSBuildEditorConfig.editorconfig
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\29.09 (Lesson 9)\AttributsIntro\AttributsIntro\obj\Debug\netcoreapp3.1\AttributsIntro.AssemblyInfoInputs.cache
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\29.09 (Lesson 9)\AttributsIntro\AttributsIntro\obj\Debug\netcoreapp3.1\AttributsIntro.AssemblyInfo.cs
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\29.09 (Lesson 9)\AttributsIntro\AttributsIntro\obj\Debug\netcoreapp3.1\AttributsIntro.csproj.CoreCompileInputs.cache
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\29.09 (Lesson 9)\AttributsIntro\AttributsIntro\obj\Debug\netcoreapp3.1\AttributsIntro.dll
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\29.09 (Lesson 9)\AttributsIntro\AttributsIntro\obj\Debug\netcoreapp3.1\AttributsIntro.pdb
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\29.09 (Lesson 9)\AttributsIntro\AttributsIntro\obj\Debug\netcoreapp3.1\AttributsIntro.genruntimeconfig.cache

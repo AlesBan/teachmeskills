@@ -28,7 +28,6 @@ namespace InterfaceIntro
             Console.WriteLine($"{AvailableOptions[choiseIndex]}:");
             while (choiseIndex != AvailableOptions.IndexOf("Exit"))
             {
-                printTables.Add(GetShapeValues.GetNewShape(AvailableOptions[choiseIndex]));
                 if (AvailableOptions[choiseIndex] == "OutPut")
                 {
                     Console.Clear();
@@ -39,6 +38,7 @@ namespace InterfaceIntro
                     Console.Clear();
                     ProgramHelpers.PrintDefaultShapes(printTables);
                 }
+                printTables.Add(GetShapeValues.GetNewShape(AvailableOptions[choiseIndex]));
                 choiseIndex = Interaction.GetChoice(AvailableOptions);
                 Console.Clear();
                 Console.WriteLine($"{AvailableOptions[choiseIndex]}:");

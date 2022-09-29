@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace InterfaceIntro
+namespace NewShapes
 {
     interface IPrintTable
     {

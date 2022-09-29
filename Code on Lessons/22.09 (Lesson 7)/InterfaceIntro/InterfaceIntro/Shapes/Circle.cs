@@ -41,5 +41,21 @@ namespace InterfaceIntro.Shapes
 
             }
         }
+        public static Circle GetNewCircle()
+        {
+            int radius;
+            char symble;
+            (int, int) center;
+
+            Console.WriteLine("Enter radius");
+            radius = GetShapeValues.GetPositiveIntNum();
+
+            Console.WriteLine("Enter symble");
+            symble = GetShapeValues.GetSymble();
+
+            Console.WriteLine("Enter center");
+            center = GetShapeValues.GetCenterOrStartPosition();
+            return new Circle(radius, symble, center);
+        }
     }
 }

@@ -33,5 +33,24 @@ namespace InterfaceIntro.Shapes
             }
             return Console.CursorTop;
         }
+        public static Rectangle GetNewRectangle()
+        {
+            int length, height;
+            char symble;
+            (int, int) startIndex;
+
+            Console.WriteLine("Enter length");
+            length = GetShapeValues.GetPositiveIntNum();
+
+            Console.WriteLine("Enter height");
+            height = GetShapeValues.GetPositiveIntNum();
+
+            Console.WriteLine("Enter symble");
+            symble = GetShapeValues.GetSymble();
+
+            Console.WriteLine("Enter startIndexes");
+            startIndex = GetShapeValues.GetCenterOrStartPosition();
+            return new Rectangle(length, height, symble, startIndex);
+        }
     }
 }
