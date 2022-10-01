@@ -14,14 +14,20 @@ namespace InterfaceIntro
         }
         public static IPrintTable GetNewShape(string className)
         {
-            Type type = Type.GetType($"InterfaceIntro.Shapes.{className}");
-            var methods = type.GetMethods();
-            foreach (MethodInfo method in methods)
+            List<Type> types = ReflectionClass.ShapeClasses;
+
+            foreach (Type type in types)
             {
-                if (method.Name == $"GetNew{className}")
+                if (type.Name == $"{className}")
                 {
-                    GetShapeValues getShapeValues = new GetShapeValues();
-                    return (IPrintTable)method.Invoke(getShapeValues, new object[] { });
+                    var methods = type.GetMethods();
+                    foreach (MethodInfo method in methods)
+                    {
+                        if (method.ReturnType.Name == "IPrintTable")
+                        {
+                            return (IPrintTable)method.Invoke(new GetShapeValues(), new object[] { });
+                        }
+                    }
                 }
             }
             return null;

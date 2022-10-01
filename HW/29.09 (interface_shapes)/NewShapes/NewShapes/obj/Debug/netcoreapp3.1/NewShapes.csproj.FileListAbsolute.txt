@@ -11,3 +11,4 @@ D:\TeachMeSkills\teachmeskillsRepository\HW\29.09 (interface_shapes)\NewShapes\N
 D:\TeachMeSkills\teachmeskillsRepository\HW\29.09 (interface_shapes)\NewShapes\NewShapes\obj\Debug\netcoreapp3.1\NewShapes.dll
 D:\TeachMeSkills\teachmeskillsRepository\HW\29.09 (interface_shapes)\NewShapes\NewShapes\obj\Debug\netcoreapp3.1\NewShapes.pdb
 D:\TeachMeSkills\teachmeskillsRepository\HW\29.09 (interface_shapes)\NewShapes\NewShapes\obj\Debug\netcoreapp3.1\NewShapes.genruntimeconfig.cache
+D:\TeachMeSkills\teachmeskillsRepository\HW\29.09 (interface_shapes)\NewShapes\NewShapes\obj\Debug\netcoreapp3.1\NewShapes.csproj.AssemblyReference.cache

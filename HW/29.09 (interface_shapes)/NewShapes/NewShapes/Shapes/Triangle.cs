@@ -1,10 +1,11 @@
-﻿using System;
+﻿using NewShapes.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NewShapes
 {
-    class Triangle : IPrintTable
+    class Triangle : IPrintTable, IGetNewShape
     {
         public char Symble { get; set; }
         public (int, int) StartIndex { get; set; }
@@ -45,7 +46,7 @@ namespace NewShapes
             }
             return Console.CursorTop;
         }
-        public static Triangle GetNewTriangle()
+        public IPrintTable GetNewShape()
         {
             int length;
             char symble;

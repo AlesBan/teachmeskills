@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using InterfaceIntro.Interfaces;
+using System;
 
 namespace InterfaceIntro.Shapes
 {
-    class Text : IPrintTable
+    [ShapeColor("Cyan")]
+    class Text : IPrintTable, IGetNewShape
     {
         public string InputText { get; set; }
         public (int, int) StartIndex { get; set; }
@@ -15,13 +15,22 @@ namespace InterfaceIntro.Shapes
         }
         public int PrintAndReturnMaxHeight()
         {
+            ShapeColorAttribute shapeColor = (ShapeColorAttribute)Attribute.GetCustomAttribute(typeof(Text), typeof(ShapeColorAttribute));
+            foreach (var color in Interaction.colors)
+            {
+                if (color.ToString() == shapeColor.Color)
+                {
+                    ConsoleColor BorderColor = color;
+                    Console.ForegroundColor = BorderColor;
+                }
+            }
             var (left, top) = StartIndex;
             Console.CursorTop = top;
             Console.CursorLeft = left;
             Console.Write(InputText);
             return Console.CursorTop;
         }
-        public static Text GetNewText()
+        public IPrintTable GetNewShape()
         {
             string text = string.Empty;
             (int, int) startIndex;

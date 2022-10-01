@@ -7,6 +7,7 @@ namespace AttributsIntro
     class VersionAttribute : Attribute
     {
         public int Version { get; set; }
+        public string Author { get; set; }
         public VersionAttribute(int version)
         {
             Version = version;

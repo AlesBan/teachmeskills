@@ -1,13 +1,14 @@
 ﻿
+using InterfaceIntro.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace InterfaceIntro.Shapes
 {
-    class Rectangle : IPrintTable
+    [ShapeColor("Yellow")]
+    class Rectangle : Shape, IPrintTable, IGetNewShape
     {
-        public char Symble { get; set; }
         public (int, int) StartIndex { get; set; }
         public int Length { get; set; }
         public int Height { get; set; }
@@ -20,6 +21,15 @@ namespace InterfaceIntro.Shapes
         }
         public int PrintAndReturnMaxHeight()
         {
+            ShapeColorAttribute shapeColor = (ShapeColorAttribute)Attribute.GetCustomAttribute(typeof(Rectangle), typeof(ShapeColorAttribute));
+            foreach (var color in Interaction.colors)
+            {
+                if (color.ToString() == shapeColor.Color)
+                {
+                    ConsoleColor BorderColor = color;
+                    Console.ForegroundColor = BorderColor;
+                }
+            }
             var (left, top) = StartIndex;
             Console.CursorTop = top;
             for (int i = 0; i < Height; i++)
@@ -33,7 +43,7 @@ namespace InterfaceIntro.Shapes
             }
             return Console.CursorTop;
         }
-        public static Rectangle GetNewRectangle()
+        public IPrintTable GetNewShape()
         {
             int length, height;
             char symble;

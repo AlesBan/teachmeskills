@@ -10,6 +10,7 @@ namespace InterfaceIntro
         {
 
         }
+        public static readonly ConsoleColor[] colors = (ConsoleColor[])ConsoleColor.GetValues(typeof(ConsoleColor));
         public static readonly string[] Shapes = new string[] { "Circle", "Square", "Rectangle", "Text" };
         public const string ConclusionChoise = "OutPut";
         public const string Exit = "Exit";

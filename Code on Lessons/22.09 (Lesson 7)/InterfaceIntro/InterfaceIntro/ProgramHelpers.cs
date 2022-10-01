@@ -2,16 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace InterfaceIntro
 {
     static class ProgramHelpers
     {
-        public static void Greeting()
+        public static readonly ConsoleColor[] colors = (ConsoleColor[])ConsoleColor.GetValues(typeof(ConsoleColor));
+        public static void Greeting(Action<string> printAction)
         {
-            Console.WriteLine("Hello! Chose one of these shapes to draw");
-            Console.WriteLine("Write num of it");
+            printAction("Hello! Chose one of these shapes to draw");
+            printAction("Write num of it");
         }
         public static List<string> GetAllChoices(IEnumerable<Type> ShapeClasses)
         {
@@ -34,12 +36,15 @@ namespace InterfaceIntro
             printTables.Add(new Text("ABOBABABA", (23, 10)));
             PrintAllShapes(printTables);
         }
+
         public static void PrintAllShapes(List<IPrintTable> printTables)
         {
+            Assembly asmbly = Assembly.GetExecutingAssembly();
+            List<Type> typeList = asmbly.GetTypes().Where(t => t.GetInterface("IPrintable") != null).ToList();
             int bubbleHeight, maxHeight = default;
             foreach (IPrintTable printTable in printTables.Where(t => t != null))
             {
-                ConsoleColor BorderColor = (ConsoleColor)(new Random()).Next(1, 15);
+                ConsoleColor BorderColor = ConsoleColor.Blue;
                 Console.ForegroundColor = BorderColor;
                 bubbleHeight = printTable.PrintAndReturnMaxHeight();
                 maxHeight = bubbleHeight > maxHeight ? bubbleHeight : maxHeight;

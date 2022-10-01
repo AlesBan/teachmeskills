@@ -1,12 +1,13 @@
-﻿using System;
+﻿using InterfaceIntro.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace InterfaceIntro.Shapes
 {
-    class Circle : IPrintTable
+    [ShapeColor("Dark Red")]
+    class Circle : Shape, IPrintTable, IGetNewShape
     {
-        public char Symble { get; set; }
         public (int, int) Center { get; set; }
         public int Radius { get; set; }
         public Circle(int radius, char symble, (int, int) center)
@@ -17,6 +18,15 @@ namespace InterfaceIntro.Shapes
         }
         public int PrintAndReturnMaxHeight()
         {
+            ShapeColorAttribute shapeColor = (ShapeColorAttribute)Attribute.GetCustomAttribute(typeof(Circle), typeof(ShapeColorAttribute));
+            foreach (var color in Interaction.colors)
+            {
+                if (color.ToString() == shapeColor.Color)
+                {
+                    ConsoleColor BorderColor = color;
+                    Console.ForegroundColor = BorderColor;
+                }
+            }
             var (CenterX, CenterY) = Center;
             int x = -Radius;
             while (x < Radius + 1)
@@ -38,10 +48,10 @@ namespace InterfaceIntro.Shapes
             }
             catch
             {
-
+                
             }
         }
-        public static Circle GetNewCircle()
+        public IPrintTable GetNewShape()
         {
             int radius;
             char symble;

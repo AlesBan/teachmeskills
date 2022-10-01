@@ -19,7 +19,7 @@ namespace AttributsIntro
             }
             Console.WriteLine(atrributExists);
         }
-        [Version(1)]
+        [Version(1, Author = "Ales")]
         public class SomeClass 
         {
 

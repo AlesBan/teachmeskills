@@ -14,14 +14,15 @@ namespace InterfaceIntro
         {
 
         }
+        public Action<string> ActionAn = (str) => Console.WriteLine(str);
         static void Main()
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
             List <IPrintTable> printTables = new List<IPrintTable>();
-            IEnumerable<Type> ShapeClasses = ReflectionClass.GetClasses();
+            List<Type> ShapeClasses = ReflectionClass.GetClasses();
             List<string> AvailableOptions = ProgramHelpers.GetAllChoices(ShapeClasses);
 
-            ProgramHelpers.Greeting();
+
+            ProgramHelpers.Greeting((str) => Console.WriteLine(str));
 
             int choiseIndex = Interaction.GetChoice(AvailableOptions);
             Console.Clear();
@@ -38,7 +39,10 @@ namespace InterfaceIntro
                     Console.Clear();
                     ProgramHelpers.PrintDefaultShapes(printTables);
                 }
-                printTables.Add(GetShapeValues.GetNewShape(AvailableOptions[choiseIndex]));
+                else
+                {
+                    printTables.Add(GetShapeValues.GetNewShape(AvailableOptions[choiseIndex]));
+                }
                 choiseIndex = Interaction.GetChoice(AvailableOptions);
                 Console.Clear();
                 Console.WriteLine($"{AvailableOptions[choiseIndex]}:");
