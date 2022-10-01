@@ -8,6 +8,10 @@ namespace InterfaceIntro.Shapes
     {
         public string InputText { get; set; }
         public (int, int) StartIndex { get; set; }
+        public Text()
+        {
+
+        }
         public Text(string inputText, (int, int) stsrtIndex)
         {
             InputText = inputText;

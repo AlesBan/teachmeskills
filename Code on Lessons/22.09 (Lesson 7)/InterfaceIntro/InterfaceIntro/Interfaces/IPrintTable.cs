@@ -4,7 +4,7 @@ using System.Text;
 
 namespace InterfaceIntro
 {
-    interface IPrintTable
+    public interface IPrintTable
     {
         public int PrintAndReturnMaxHeight();
     }

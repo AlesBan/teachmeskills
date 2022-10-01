@@ -10,6 +10,10 @@ namespace InterfaceIntro.Shapes
     {
         public (int, int) Center { get; set; }
         public int Radius { get; set; }
+        public Circle()
+        {
+
+        }
         public Circle(int radius, char symble, (int, int) center)
         {
             Symble = symble;

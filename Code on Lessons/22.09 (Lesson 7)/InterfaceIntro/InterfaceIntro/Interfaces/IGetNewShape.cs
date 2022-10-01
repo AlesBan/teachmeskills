@@ -4,7 +4,7 @@ using System.Text;
 
 namespace InterfaceIntro.Interfaces
 {
-    interface IGetNewShape
+    public interface IGetNewShape
     {
         public IPrintTable GetNewShape();
     }

@@ -18,9 +18,7 @@ namespace InterfaceIntro
         static void Main()
         {
             List <IPrintTable> printTables = new List<IPrintTable>();
-            List<Type> ShapeClasses = ReflectionClass.GetClasses();
-            List<string> AvailableOptions = ProgramHelpers.GetAllChoices(ShapeClasses);
-
+            List<string> AvailableOptions = ProgramHelpers.GetAllChoices(ReflectionClass.GetClasses());
 
             ProgramHelpers.Greeting((str) => Console.WriteLine(str));
 

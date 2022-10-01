@@ -4,7 +4,7 @@ using System.Text;
 
 namespace InterfaceIntro.Shapes
 {
-    abstract class Shape
+    public abstract class Shape
     {
         public char Symble { get; set; }
     }

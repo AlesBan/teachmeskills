@@ -10,6 +10,10 @@ namespace InterfaceIntro.Shapes
     {
         public (int, int) StartIndex { get; set; }
         public int Length { get; set; }
+        public Square()
+        {
+
+        }
         public Square(int length, char symble, (int, int) startIndex)
         {
             Symble = symble;

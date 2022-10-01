@@ -1,15 +1,19 @@
 ﻿using NewShapes.Interfaces;
+using NewShapes.Shapes;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NewShapes
 {
-    class Triangle : IPrintTable, IGetNewShape
+    class Triangle : Shape, IPrintTable, IGetNewShape
     {
-        public char Symble { get; set; }
         public (int, int) StartIndex { get; set; }
         public int Length { get; set; }
+        public Triangle()
+        {
+
+        }
         public Triangle(int length, char symble, (int, int) startIndex)
         {
             Symble = symble;

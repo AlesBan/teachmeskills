@@ -12,6 +12,10 @@ namespace InterfaceIntro.Shapes
         public (int, int) StartIndex { get; set; }
         public int Length { get; set; }
         public int Height { get; set; }
+        public Rectangle()
+        {
+
+        }
         public Rectangle(int length, int height, char symble, (int, int) startIndex) 
         {
             Symble = symble;

@@ -40,12 +40,9 @@ namespace InterfaceIntro
         public static void PrintAllShapes(List<IPrintTable> printTables)
         {
             Assembly asmbly = Assembly.GetExecutingAssembly();
-            List<Type> typeList = asmbly.GetTypes().Where(t => t.GetInterface("IPrintable") != null).ToList();
             int bubbleHeight, maxHeight = default;
             foreach (IPrintTable printTable in printTables.Where(t => t != null))
             {
-                ConsoleColor BorderColor = ConsoleColor.Blue;
-                Console.ForegroundColor = BorderColor;
                 bubbleHeight = printTable.PrintAndReturnMaxHeight();
                 maxHeight = bubbleHeight > maxHeight ? bubbleHeight : maxHeight;
                 Console.ResetColor();

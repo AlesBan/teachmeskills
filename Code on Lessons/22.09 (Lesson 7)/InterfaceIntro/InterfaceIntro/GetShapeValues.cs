@@ -2,11 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 
 namespace InterfaceIntro
 {
-    class GetShapeValues
+    public class GetShapeValues
     {
         protected GetShapeValues()
         {
@@ -14,18 +13,15 @@ namespace InterfaceIntro
         }
         public static IPrintTable GetNewShape(string className)
         {
-            List<Type> types = ReflectionClass.ShapeClasses;
-
-            foreach (Type type in types)
+            foreach (Type type in ReflectionClass.ShapeClasses)
             {
                 if (type.Name == $"{className}")
                 {
-                    var methods = type.GetMethods();
-                    foreach (MethodInfo method in methods)
+                    foreach (MethodInfo method in type.GetMethods())
                     {
                         if (method.ReturnType.Name == "IPrintTable")
                         {
-                            return (IPrintTable)method.Invoke(new GetShapeValues(), new object[] { });
+                            return (IPrintTable)method.Invoke(Activator.CreateInstance(type), null);
                         }
                     }
                 }
