@@ -11,3 +11,4 @@ D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\Interf
 D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\obj\Debug\netcoreapp3.1\InterfaceIntro.dll
 D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\obj\Debug\netcoreapp3.1\InterfaceIntro.pdb
 D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\obj\Debug\netcoreapp3.1\InterfaceIntro.genruntimeconfig.cache
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\22.09 (Lesson 7)\InterfaceIntro\InterfaceIntro\obj\Debug\netcoreapp3.1\InterfaceIntro.csproj.AssemblyReference.cache

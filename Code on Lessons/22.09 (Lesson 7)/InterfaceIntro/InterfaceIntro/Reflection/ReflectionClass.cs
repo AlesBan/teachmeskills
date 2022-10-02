@@ -10,12 +10,8 @@ namespace InterfaceIntro.Shapes
     static class ReflectionClass
     {
         public static readonly List<Type> ShapeClasses = new List<Type>();
-        public static List<Type> GetClasses()
+        public static List<Type> GetClasses(Action<string> WriteLine)
         {
-            
-            Assembly asmbly = Assembly.GetExecutingAssembly();
-            List<Type> typeList = asmbly.GetTypes().ToList();
-
             var files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*dll");
             foreach (var file in files)
             {
@@ -25,7 +21,7 @@ namespace InterfaceIntro.Shapes
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message);
+                    WriteLine(e.Message);
                 }
             }
             return ShapeClasses;

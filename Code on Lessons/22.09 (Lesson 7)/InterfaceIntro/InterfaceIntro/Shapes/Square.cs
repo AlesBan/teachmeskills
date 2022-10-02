@@ -20,7 +20,7 @@ namespace InterfaceIntro.Shapes
             StartIndex = startIndex;
             Length = length;
         }
-        public int PrintAndReturnMaxHeight()
+        public int PrintAndReturnMaxHeight(Printer printer)
         {
             ShapeColorAttribute shapeColor = (ShapeColorAttribute)Attribute.GetCustomAttribute(typeof(Square), typeof(ShapeColorAttribute));
             foreach (var color in Interaction.colors)
@@ -28,36 +28,36 @@ namespace InterfaceIntro.Shapes
                 if (color.ToString() == shapeColor.Color)
                 {
                     ConsoleColor BorderColor = color;
-                    Console.ForegroundColor = BorderColor;
+                    printer.Color(BorderColor);
                 }
             }
             var (left, top) = StartIndex;
-            Console.CursorTop = top;
+            printer.SetCursorTop(top);
             for (int i = 0; i < Length; i++)
             {
-                Console.CursorLeft = left;
+                printer.SetCursorLeft(left);
                 for (int j = 0; j < Length; j++)
                 {
-                    Console.Write(Symble + " ");
+                    printer.WriteStr(Symble + " ");
                 }
-                Console.Write("\n");
+                printer.WriteStr("\n");
             }
-            return Console.CursorTop;
+            return printer.CursorTop();
         }
-        public IPrintTable GetNewShape()
+        public IPrintTable GetNewShape(Printer printer)
         {
             int length;
             char symble;
             (int, int) startIndex;
 
-            Console.WriteLine("Enter length");
-            length = GetShapeValues.GetPositiveIntNum();
+            printer.WriteLine("Enter length");
+            length = GetShapeValues.GetPositiveIntNum(printer);
 
-            Console.WriteLine("Enter symble");
-            symble = GetShapeValues.GetSymble();
+            printer.WriteLine("Enter symble");
+            symble = GetShapeValues.GetSymble(printer);
 
-            Console.WriteLine("Enter startIndexes");
-            startIndex = GetShapeValues.GetCenterOrStartPosition();
+            printer.WriteLine("Enter startIndexes");
+            startIndex = GetShapeValues.GetCenterOrStartPosition(printer);
             return new Square(length, symble, startIndex);
         }
     }

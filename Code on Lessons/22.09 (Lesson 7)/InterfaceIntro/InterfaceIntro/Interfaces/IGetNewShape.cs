@@ -6,6 +6,6 @@ namespace InterfaceIntro.Interfaces
 {
     public interface IGetNewShape
     {
-        public IPrintTable GetNewShape();
+        public IPrintTable GetNewShape(Printer printer);
     }
 }

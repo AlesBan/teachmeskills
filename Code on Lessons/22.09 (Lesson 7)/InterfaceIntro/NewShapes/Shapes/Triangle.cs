@@ -21,50 +21,50 @@ namespace NewShapes
             StartIndex = startIndex;
             Length = length;
         }
-        public int PrintAndReturnMaxHeight()
+        public int PrintAndReturnMaxHeight(Printer printer)
         {
             var (left, top) = StartIndex;
-            Console.CursorTop = top;
+            printer.SetCursorTop(top);
             try
             {
                 for (int i = 1; i <= Length; i++)
                 {
-                    Console.CursorLeft = left;
+                    printer.SetCursorLeft(left);
                     for (int j = 1; j <= Length - i; j++)
                     {
-                        Console.Write(" ");
+                        printer.WriteStr(" ");
                     }
                     for (int k = 1; k <= i; k++)
                     {
-                        Console.Write(Symble);
+                        printer.WriteChar(Symble);
                     }
                     for (int l = i - 1; l >= 1; l--)
                     {
-                        Console.Write(Symble);
+                        printer.WriteChar(Symble);
                     }
-                    Console.Write("\n");
+                    printer.WriteStr("\n");
                 }
             }
             catch
             {
-
+                //
             }
-            return Console.CursorTop;
+            return Length * 2;
         }
-        public IPrintTable GetNewShape()
+        public IPrintTable GetNewShape(Printer printer)
         {
             int length;
             char symble;
             (int, int) startIndex;
 
             Console.WriteLine("Enter length");
-            length = GetShapeValues.GetPositiveIntNum();
+            length = GetShapeValues.GetPositiveIntNum(printer);
 
             Console.WriteLine("Enter symble");
-            symble = GetShapeValues.GetSymble();
+            symble = GetShapeValues.GetSymble(printer);
 
             Console.WriteLine("Enter startIndexes");
-            startIndex = GetShapeValues.GetCenterOrStartPosition();
+            startIndex = GetShapeValues.GetCenterOrStartPosition(printer);
             return new Triangle(length, symble, startIndex);
         }
     }

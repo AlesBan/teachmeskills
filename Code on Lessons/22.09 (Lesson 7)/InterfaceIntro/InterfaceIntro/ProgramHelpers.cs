@@ -28,32 +28,31 @@ namespace InterfaceIntro
             }
             return AvailableOptions;
         }
-        public static void PrintDefaultShapes(List<IPrintTable> printTables)
+        public static void PrintDefaultShapes(List<IPrintTable> printTables, Printer printer)
         {
             printTables.Add(new Square(8, 'h', (5, 5)));
             printTables.Add(new Rectangle(8, 8, 'r', (1, 2)));
             printTables.Add(new Circle(8, 't', (15, 15)));
             printTables.Add(new Text("ABOBABABA", (23, 10)));
-            PrintAllShapes(printTables);
+            PrintAllShapes(printTables, printer);
         }
 
-        public static void PrintAllShapes(List<IPrintTable> printTables)
+        public static void PrintAllShapes(List<IPrintTable> printTables, Printer printer)
         {
-            Assembly asmbly = Assembly.GetExecutingAssembly();
             int bubbleHeight, maxHeight = default;
             foreach (IPrintTable printTable in printTables.Where(t => t != null))
             {
-                bubbleHeight = printTable.PrintAndReturnMaxHeight();
+                bubbleHeight = printTable.PrintAndReturnMaxHeight(printer);
                 maxHeight = bubbleHeight > maxHeight ? bubbleHeight : maxHeight;
                 Console.ResetColor();
             }
-            Console.CursorLeft = 0;
-            Console.CursorTop = maxHeight + 4;
-            Console.WriteLine("Press Enter to continue.");
-            Console.ReadLine();
-            Console.Clear();
-            Console.CursorLeft = 0;
-            Console.CursorTop = 0;
+            printer.SetCursorLeft(0);
+            printer.SetCursorTop(maxHeight + 4);
+            printer.WriteLine("Press Enter to continue.");
+            printer.ReadLine();
+            printer.Clear();
+            printer.SetCursorLeft(0);
+            printer.SetCursorTop(0);
         }
     }
 }

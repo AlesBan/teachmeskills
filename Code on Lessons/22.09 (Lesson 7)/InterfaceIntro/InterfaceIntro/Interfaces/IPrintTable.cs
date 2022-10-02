@@ -6,6 +6,6 @@ namespace InterfaceIntro
 {
     public interface IPrintTable
     {
-        public int PrintAndReturnMaxHeight();
+        public int PrintAndReturnMaxHeight(Printer printer);
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace InterfaceIntro.Shapes
 {
-    [ShapeColor("Dark Red")]
+    [ShapeColor("DarkRed")]
     class Circle : Shape, IPrintTable, IGetNewShape
     {
         public (int, int) Center { get; set; }
@@ -20,7 +20,7 @@ namespace InterfaceIntro.Shapes
             Center = center;
             Radius = radius;
         }
-        public int PrintAndReturnMaxHeight()
+        public int PrintAndReturnMaxHeight(Printer printer)
         {
             ShapeColorAttribute shapeColor = (ShapeColorAttribute)Attribute.GetCustomAttribute(typeof(Circle), typeof(ShapeColorAttribute));
             foreach (var color in Interaction.colors)
@@ -28,7 +28,7 @@ namespace InterfaceIntro.Shapes
                 if (color.ToString() == shapeColor.Color)
                 {
                     ConsoleColor BorderColor = color;
-                    Console.ForegroundColor = BorderColor;
+                    printer.Color(BorderColor);
                 }
             }
             var (CenterX, CenterY) = Center;
@@ -36,39 +36,39 @@ namespace InterfaceIntro.Shapes
             while (x < Radius + 1)
             {
                 var y = (int)Math.Floor(Math.Sqrt(Radius * Radius - (x * x)));
-                WriteSymleInCurrentPlace(x + CenterX, y + CenterY);
+                WriteSymleInCurrentPlace(x + CenterX, y + CenterY, printer.WriteChar);
                 y = -y;
-                WriteSymleInCurrentPlace(x + CenterX, y + CenterY);
+                WriteSymleInCurrentPlace(x + CenterX, y + CenterY, printer.WriteChar);
                 x++;
             }
             return CenterY + 2 * Radius;
         }
-        public void WriteSymleInCurrentPlace(int xp, int yp)
+        public void WriteSymleInCurrentPlace(int xp, int yp, Action<char> Write)
         {
             try
             {
                 Console.SetCursorPosition(xp, yp);
-                Console.Write(Symble);
+                Write(Symble);
             }
             catch
             {
-                
+                //
             }
         }
-        public IPrintTable GetNewShape()
+        public IPrintTable GetNewShape(Printer printer)
         {
             int radius;
             char symble;
             (int, int) center;
 
-            Console.WriteLine("Enter radius");
-            radius = GetShapeValues.GetPositiveIntNum();
+            printer.WriteLine("Enter radius");
+            radius = GetShapeValues.GetPositiveIntNum(printer);
 
-            Console.WriteLine("Enter symble");
-            symble = GetShapeValues.GetSymble();
+            printer.WriteLine("Enter symble");
+            symble = GetShapeValues.GetSymble(printer);
 
-            Console.WriteLine("Enter center");
-            center = GetShapeValues.GetCenterOrStartPosition();
+            printer.WriteLine("Enter center");
+            center = GetShapeValues.GetCenterOrStartPosition(printer);
             return new Circle(radius, symble, center);
         }
     }

@@ -17,7 +17,7 @@ namespace InterfaceIntro.Shapes
             InputText = inputText;
             StartIndex = stsrtIndex;
         }
-        public int PrintAndReturnMaxHeight()
+        public int PrintAndReturnMaxHeight(Printer printer)
         {
             ShapeColorAttribute shapeColor = (ShapeColorAttribute)Attribute.GetCustomAttribute(typeof(Text), typeof(ShapeColorAttribute));
             foreach (var color in Interaction.colors)
@@ -25,27 +25,27 @@ namespace InterfaceIntro.Shapes
                 if (color.ToString() == shapeColor.Color)
                 {
                     ConsoleColor BorderColor = color;
-                    Console.ForegroundColor = BorderColor;
+                    printer.Color(BorderColor);
                 }
             }
             var (left, top) = StartIndex;
-            Console.CursorTop = top;
-            Console.CursorLeft = left;
-            Console.Write(InputText);
-            return Console.CursorTop;
+            printer.SetCursorTop(top);
+            printer.SetCursorLeft(left);
+            printer.WriteStr(InputText);
+            return printer.CursorTop();
         }
-        public IPrintTable GetNewShape()
+        public IPrintTable GetNewShape(Printer printer)
         {
             string text = string.Empty;
             (int, int) startIndex;
 
             while (text == string.Empty)
             {
-                Console.WriteLine("Enter some text (not empty str)");
-                text = Console.ReadLine();
+                printer.WriteLine("Enter some text (not empty str)");
+                text = printer.ReadLine();
             }
-            Console.WriteLine("Enter startIndexes");
-            startIndex = GetShapeValues.GetCenterOrStartPosition();
+            printer.WriteLine("Enter startIndexes");
+            startIndex = GetShapeValues.GetCenterOrStartPosition(printer);
             return new Text(text, startIndex);
         }
     }
