@@ -9,7 +9,7 @@ namespace InterfaceIntro
 {
     static class ProgramHelpers
     {
-        public static readonly ConsoleColor[] colors = (ConsoleColor[])ConsoleColor.GetValues(typeof(ConsoleColor));
+        public static readonly ConsoleColor[] colors = (ConsoleColor[])Enum.GetValues(typeof(ConsoleColor));
         public static void Greeting(Action<string> printAction)
         {
             printAction("Hello! Chose one of these shapes to draw");

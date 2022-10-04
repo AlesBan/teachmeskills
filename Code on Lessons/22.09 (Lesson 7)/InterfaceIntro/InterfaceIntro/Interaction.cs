@@ -12,13 +12,14 @@ namespace InterfaceIntro
         {
 
         }
-        public static readonly ConsoleColor[] colors = (ConsoleColor[])ConsoleColor.GetValues(typeof(ConsoleColor));
-        public static readonly string[] Shapes = new string[] { "Circle", "Square", "Rectangle", "Text" };
+        public static readonly ConsoleColor[] colors = (ConsoleColor[])Enum.GetValues(typeof(ConsoleColor));
         public const string ConclusionChoise = "OutPut";
         public const string Exit = "Exit";
         public static readonly string[] additionalyChoices = new string[] { "OutPut", "Exit" };
         public static readonly string[] AllChoices = new string[] { "Circle", "Square", "Rectangle", "Text", "OutPut", "Exit", "Default" };
         public static readonly List<IPrintTable> printTables = new List<IPrintTable>();
+        public static event Action<List<string>, Printer, MainFunctions> MainMenuFunc = (AvailableOptions, printer, mainFunctions) =>
+        MainMenu(AvailableOptions, printer, mainFunctions);
 
         public static void WriteAllAvailableShapes(List<string> AvailableOptions, Action<string> WriteLine)
         {
@@ -27,6 +28,7 @@ namespace InterfaceIntro
                 WriteLine($"{i}) {AvailableOptions[i - 1]}");
             }
         }
+
         public static void MainMenu(List<string> AvailableOptions, Printer printer, MainFunctions mainFunctions)
         {
             WriteAllAvailableShapes(AvailableOptions, printer.WriteLine);
@@ -42,8 +44,9 @@ namespace InterfaceIntro
                     printer.WriteLine("Input is invalid\nTry again");
                 }
             }
-            HadlingWithChoice(choice - 1,AvailableOptions, printer, mainFunctions);            
+            HadlingWithChoice(choice - 1, AvailableOptions, printer, mainFunctions);
         }
+
         public static void HadlingWithChoice(int choiceIndex, List<string> AvailableOptions, Printer printer, MainFunctions mainFunctions)
         {
             printer.Clear();
@@ -51,7 +54,7 @@ namespace InterfaceIntro
             if (choice == "OutPut")
             {
                 ProgramHelpers.PrintAllShapes(printer);
-                mainFunctions.MainMenuFunc(AvailableOptions, printer, mainFunctions);
+                MainMenuFunc += MainMenu;
             }
             else if (choice == "Exit")
             {
@@ -60,13 +63,18 @@ namespace InterfaceIntro
             else
             {
                 printTables.Add(GetShapeValues.GetNewShape(AvailableOptions[choiceIndex], printer));
-                mainFunctions.MainMenuFunc(AvailableOptions, printer, mainFunctions);
+                MainMenuFunc(AvailableOptions, printer, mainFunctions);
             }
         }
+
         public static void GetAllOptions(Printer printer, MainFunctions mainFunctions)
         {
             List<string> AvailableOptions = ProgramHelpers.GetAllChoices(ReflectionClass.GetClasses(printer.WriteLine));
             MainMenu(AvailableOptions, printer, mainFunctions);
+        }
+        public static void CallMenuEvent(List<string> AvailableOptions, Printer printer, MainFunctions mainFunctions)
+        {
+            MainMenuFunc(AvailableOptions, printer, mainFunctions);
         }
     }
 }
