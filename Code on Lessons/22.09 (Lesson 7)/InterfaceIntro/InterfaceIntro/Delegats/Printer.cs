@@ -12,7 +12,7 @@ namespace InterfaceIntro
         public Func<string> ReadLine { get; set; } = () => Console.ReadLine();
         public Action Clear { get; set; } = () => Console.Clear();
         public Action<int> SetCursorTop { get; set; } = (num) => Console.CursorTop = num;
-        public Action<int> SetCursorLeft { get; set; } = (num) => Console.CursorTop = num;
+        public Action<int> SetCursorLeft { get; set; } = (num) => Console.CursorLeft = num;
         public Func<int> CursorTop { get; set; } = () => Console.CursorTop; 
         public Func<int> CursorLeft { get; set; } = () => Console.CursorLeft;
         public Action<ConsoleColor> Color { get; set; } = (color) => Console.ForegroundColor = color;

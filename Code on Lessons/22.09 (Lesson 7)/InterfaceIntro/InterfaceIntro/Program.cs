@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using InterfaceIntro.Delegats;
 using InterfaceIntro.Shapes;
 using Microsoft.VisualBasic.CompilerServices;
 
@@ -17,7 +18,9 @@ namespace InterfaceIntro
         static void Main()
         {
             Printer printer = new Printer();
-            UserInteraction.InteractionWithUser(printer);
+            MainFunctions mainFunctions = new MainFunctions();
+            ProgramHelpers.Greeting(printer.WriteLine);
+            Interaction.GetAllOptions(printer, mainFunctions);
         }
     }
 }

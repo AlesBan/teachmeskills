@@ -15,6 +15,7 @@ namespace InterfaceIntro
             printAction("Hello! Chose one of these shapes to draw");
             printAction("Write num of it");
         }
+
         public static List<string> GetAllChoices(IEnumerable<Type> ShapeClasses)
         {
             List<string> AvailableOptions = new List<string>();
@@ -28,19 +29,11 @@ namespace InterfaceIntro
             }
             return AvailableOptions;
         }
-        public static void PrintDefaultShapes(List<IPrintTable> printTables, Printer printer)
-        {
-            printTables.Add(new Square(8, 'h', (5, 5)));
-            printTables.Add(new Rectangle(8, 8, 'r', (1, 2)));
-            printTables.Add(new Circle(8, 't', (15, 15)));
-            printTables.Add(new Text("ABOBABABA", (23, 10)));
-            PrintAllShapes(printTables, printer);
-        }
 
-        public static void PrintAllShapes(List<IPrintTable> printTables, Printer printer)
+        public static void PrintAllShapes(Printer printer)
         {
             int bubbleHeight, maxHeight = default;
-            foreach (IPrintTable printTable in printTables.Where(t => t != null))
+            foreach (IPrintTable printTable in Interaction.printTables.Where(t => t != null))
             {
                 bubbleHeight = printTable.PrintAndReturnMaxHeight(printer);
                 maxHeight = bubbleHeight > maxHeight ? bubbleHeight : maxHeight;

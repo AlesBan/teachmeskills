@@ -13,6 +13,7 @@ namespace InterfaceIntro
         }
         public static IPrintTable GetNewShape(string className, Printer printer)
         {
+            printer.WriteLine($"{className}:");
             foreach (Type type in ReflectionClass.ShapeClasses)
             {
                 if (type.Name == $"{className}")
