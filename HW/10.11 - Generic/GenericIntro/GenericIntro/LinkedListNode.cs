@@ -4,15 +4,20 @@ using System.Text;
 
 namespace GenericIntro
 {
-    class LinkedListNode<T>
+    internal class LinkedListNode<T> : IComparable<LinkedListNode<T>>
     {
-        public T data;
-        public LinkedListNode<T> next;
+        public T Data { get; set; }
+        public LinkedListNode<T> Next { get; set; }
 
         public LinkedListNode(T x)
         {
-            data = x;
-            next = null;
+            Data = x;
+            Next = null;
+        }
+
+        public int CompareTo(LinkedListNode<T> other)
+        {
+            return Data.ToString().CompareTo(other?.Data.ToString());
         }
     }
 }

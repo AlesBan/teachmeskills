@@ -4,11 +4,11 @@ using System.Text;
 
 namespace GenericIntro
 {
-    class LinkedList<T>
+    public class LinkedList<T>
     {
         public int Count { get; set; }
-        public LinkedListNode<T> Head { get; set; }
-        public LinkedListNode<T> LastItem { get; set; }
+        private LinkedListNode<T> Head { get; set; }
+        private LinkedListNode<T> LastItem { get; set; }
         public LinkedList()
         {
             Head = null;
@@ -22,31 +22,31 @@ namespace GenericIntro
             LinkedListNode<T> corrent;
             if (index == 1)
             {
-                runningNode = Head.next;
+                runningNode = Head.Next;
                 Head = null;
                 Head = runningNode;
             }
             else if (index == Count)
             {
                 previous = FindNode(Count - 1);
-                previous.next = null;
+                previous.Next = null;
                 LastItem = previous;
             }
             else
             {
                 previous = FindNode(index - 1);
                 corrent = FindNode(index);
-                previous.next = corrent.next;
-                corrent.next = null;
+                previous.Next = corrent.Next;
+                corrent.Next = null;
             }
             Count--;
         }
-        public LinkedListNode<T> FindNode(int index)
+        private LinkedListNode<T> FindNode(int index)
         {
             LinkedListNode<T> runningNode = Head;
             for (int i = 1; i != index; i++)
             {
-                runningNode = runningNode.next;
+                runningNode = runningNode.Next;
             }
             return runningNode;
         }
@@ -55,7 +55,7 @@ namespace GenericIntro
             LinkedListNode<T> node = new LinkedListNode<T>(data);
             if (Head != null)
             {
-                LastItem.next = node;
+                LastItem.Next = node;
                 LastItem = node;
             }
             else
@@ -69,18 +69,19 @@ namespace GenericIntro
         {
             LinkedListNode<T> node = new LinkedListNode<T>(data)
             {
-                next = Head
+                Next = Head
             };
             Head = node;
             Count++;
         }
+
         public void PrintList()
         {
             LinkedListNode<T> runner = Head;
             while (runner != null)
             {
-                Console.WriteLine(runner.data);
-                runner = runner.next;
+                Console.WriteLine(runner.Data);
+                runner = runner.Next;
             }
         }
         public void Reverse()
@@ -90,11 +91,28 @@ namespace GenericIntro
             for (int i = 1; i < Count; i++)
             {
                 previous = FindNode(Count - i);
-                LastItem.next = previous;
+                LastItem.Next = previous;
                 LastItem = previous;
             }
-            LastItem.next = null;
+            LastItem.Next = null;
             Head = newHead;
+        }
+        public void Sort()
+        {
+            LinkedListNode<T>[] temp = new LinkedListNode<T>[Count];
+            LinkedListNode<T> runner = Head;
+            for (int i = 0; i < Count; i++)
+            {
+                temp[i] = runner;
+                runner = runner.Next;
+            }
+            Array.Sort(temp);
+            Head = temp[0];
+            LastItem = temp[0];
+            foreach (LinkedListNode<T> node in temp[1..])
+            {
+                AddNode(node.Data);
+            }
         }
         public override string ToString()
         {
@@ -102,8 +120,8 @@ namespace GenericIntro
             LinkedListNode<T> runner = Head;
             while (runner != null)
             {
-                newArray.Add(runner.data.ToString());
-                runner = runner.next;
+                newArray.Add(runner.Data.ToString());
+                runner = runner.Next;
             }
             return string.Join(" ", newArray);
         }

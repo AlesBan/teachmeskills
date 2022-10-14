@@ -23,6 +23,8 @@ namespace GenericIntro
             Console.WriteLine("\n\n");
             linkedList.Reverse();
             Console.WriteLine(linkedList.ToString());
+            linkedList.Sort();
+            Console.WriteLine(linkedList.ToString());
         }
     }
 }

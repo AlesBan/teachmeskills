@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\TeachMeSkills\\teachmeskillsRepository\\Code on Lessons\\22.09 (Lesson 7)\\InterfaceIntro\\NewShapes\\NewShapes.csproj",
+      "projectUniqueName": "D:\\TeachMeSkills\\teachmeskillsRepository\\Code on Lessons\\09.22 (Lesson 7)\\InterfaceIntro\\NewShapes\\NewShapes.csproj",
       "projectName": "NewShapes",
-      "projectPath": "D:\\TeachMeSkills\\teachmeskillsRepository\\Code on Lessons\\22.09 (Lesson 7)\\InterfaceIntro\\NewShapes\\NewShapes.csproj",
+      "projectPath": "D:\\TeachMeSkills\\teachmeskillsRepository\\Code on Lessons\\09.22 (Lesson 7)\\InterfaceIntro\\NewShapes\\NewShapes.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\TeachMeSkills\\teachmeskillsRepository\\Code on Lessons\\22.09 (Lesson 7)\\InterfaceIntro\\NewShapes\\obj\\",
+      "outputPath": "D:\\TeachMeSkills\\teachmeskillsRepository\\Code on Lessons\\09.22 (Lesson 7)\\InterfaceIntro\\NewShapes\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,8 +58,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\TeachMeSkills\\teachmeskillsRepository\\Code on Lessons\\22.09 (Lesson 7)\\InterfaceIntro\\InterfaceIntro\\InterfaceIntro.csproj": {
-              "projectPath": "D:\\TeachMeSkills\\teachmeskillsRepository\\Code on Lessons\\22.09 (Lesson 7)\\InterfaceIntro\\InterfaceIntro\\InterfaceIntro.csproj"
+            "D:\\TeachMeSkills\\teachmeskillsRepository\\Code on Lessons\\09.22 (Lesson 7)\\InterfaceIntro\\InterfaceIntro\\InterfaceIntro.csproj": {
+              "projectPath": "D:\\TeachMeSkills\\teachmeskillsRepository\\Code on Lessons\\09.22 (Lesson 7)\\InterfaceIntro\\InterfaceIntro\\InterfaceIntro.csproj"
             }
           }
         }
