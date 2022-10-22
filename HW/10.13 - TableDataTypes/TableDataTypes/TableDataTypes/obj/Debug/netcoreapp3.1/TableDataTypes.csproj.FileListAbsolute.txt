@@ -12,3 +12,5 @@ D:\TeachMeSkills\teachmeskillsRepository\HW\10.13 - TableDataTypes\TableDataType
 D:\TeachMeSkills\teachmeskillsRepository\HW\10.13 - TableDataTypes\TableDataTypes\TableDataTypes\obj\Debug\netcoreapp3.1\TableDataTypes.dll
 D:\TeachMeSkills\teachmeskillsRepository\HW\10.13 - TableDataTypes\TableDataTypes\TableDataTypes\obj\Debug\netcoreapp3.1\TableDataTypes.pdb
 D:\TeachMeSkills\teachmeskillsRepository\HW\10.13 - TableDataTypes\TableDataTypes\TableDataTypes\obj\Debug\netcoreapp3.1\TableDataTypes.genruntimeconfig.cache
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.13 - TableDataTypes\TableDataTypes\TableDataTypes\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.13 - TableDataTypes\TableDataTypes\TableDataTypes\obj\Debug\netcoreapp3.1\TableDataTypes.csproj.CopyComplete

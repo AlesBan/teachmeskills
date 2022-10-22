@@ -15,7 +15,7 @@ namespace TableDataTypes.Iteraction
         }
         public static void GreetingMes()
         {
-            Console.WriteLine("Hello! You can add a new table with 3 columns");
+            Console.WriteLine("Hello! You already have Person table with 3 columns: \nName | Age | Address\n");
         }
         public static void PrintNumberOfTypeMes()
         {
