@@ -1,75 +1,108 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TableDataTypes.Exeptions;
+using TableDataTypes.Delegats;
 using TableDataTypes.Helpers;
 using TableDataTypes.JsonIteraction;
 using TableDataTypes.Person;
+using System.Text.Json;
 
 namespace TableDataTypes.Iteraction
 {
     internal class IteractionWithUser
     {
+        public static event Action<Table<string, int, Address>> MainMenuEvent = (table) => MainMenu(table);
+        public static event Action<Table<string, int, Address>, int> TurnThePageEvent = (table, direction) =>
+        TurnThePage(table, direction);
+        
         protected IteractionWithUser()
         {
 
         }
         public static void Start()
         {
-            IteractionMessages.GreetingMes();
-            Table<string, int, Address> table = new Table<string, int, Address>();
-            JsonIteractor.JsonWrite(PutDefaultLines());
-            JsonIteractor.JsonRead().PrintAllTable();
+            JsonIteractor.JsonWrite(GettingInfo.PutDefaultLines());
 
-            //PutLinesInTable(ref table);
+            Table<string, int, Address> table = JsonIteractor.JsonRead();
+            MainFunctions.OutPutFunc(table);
+            OnMainMenuEvent(table);
         }
-        public static void PutLinesInTable(ref Table<string, int, Address> table)
+        public static void MainMenu(Table<string, int, Address> table)
         {
-            string choice = string.Empty;
-            while (choice != "output")
+            int choice = default;
+            IteractionMessages.WriteAvailableOptions();
+            while (choice <= 0 && choice! <= Constants.AvaliableOptions.Length)
             {
-                table.AddNewLine(GetNewLine());
-                choice = IteractionMessages.AskForContinue();
+                try
+                {
+                    int.TryParse(Console.ReadLine(), out choice);
+                }
+                catch
+                {
+                    IteractionMessages.WriteInvalideInput();
+                }
             }
+            HadlingWithChoice(choice - 1, ref table);
         }
-        public static Table<string, int, Address> PutDefaultLines()
+        public static void HadlingWithChoice(int choiceIndex, ref Table<string, int, Address> table)
         {
-            Table<string, int, Address> table = new Table<string, int, Address>();
-            foreach (Line<string, int, Address> line in Constants.DefaultLines)
+            Console.Clear();
+            string choice = Constants.AvaliableOptions[choiceIndex];
+            switch (choice)
             {
-                table.AddNewLine(line);
-            }
-            return table;
-        }
-        public static Line<string, int, Address> GetNewLine()
-        {
-            return new Line<string, int, Address>(GetNewStr("Enter Name"), GetNewInt(), GetNewAddress());
-        }
-        public static int GetNewInt()
-        {
-            Console.WriteLine("Enter your number");
-            int newInt;
-            try
-            {
-                newInt = int.Parse(Console.ReadLine());
-            }
-            catch
-            {
-                Console.WriteLine("Invalide input");
-                return GetNewInt();
-            }
+                case "Add line":
+                    MainFunctions.AddNewLineToListFunc(table);
+                    OnMainMenuEvent(table);
+                    break;
+                case "OutPut":
+                    MainFunctions.OutPutFunc(table);
+                    OnMainMenuEvent(table);
+                    break;
+                case "Exit":
+                    MainFunctions.ExitFunc();
+                    break;
+                case "Set pagination":
+                    MainFunctions.SetPaginationFunc(table);
+                    OnMainMenuEvent(table);
+                    break;
+                case "Next page":
+                    OnTurnThePageEvent(ref table, 1);
+                    break;
+                case "Previous page":
+                    OnTurnThePageEvent(ref table, -1);
+                    break;
+                case "Go to":
+                    OnTurnThePageEvent(ref table, 0);
+                    break;
+                case "Read new file":
 
-            return newInt;
+                    break;
+            }
         }
-        public static Address GetNewAddress()
+        public static void TurnThePage(Table<string, int, Address> table, int direction)
         {
-            Console.WriteLine("Enter Address");
-            return new Address(GetNewStr("Enter street"), GetNewStr("Enter sity"), GetNewStr("Enter country"));
+            if (direction == 1 && table.CurrentPage != table.Pages.Count)
+            {
+                table.CurrentPage++;
+            }
+            else if (direction == -1 && table.CurrentPage != 1)
+            {
+                table.CurrentPage--;
+            }
+            else if (direction == 0)
+            {
+                table.CurrentPage = GettingInfo.GetPageNumber(table);
+            }
+            Console.Clear();
+            MainFunctions.OutPutFunc(table);
+            OnMainMenuEvent(table);
         }
-        public static string GetNewStr(string str)
+        public static void OnMainMenuEvent(Table<string, int, Address> table)
         {
-            Console.WriteLine(str);
-            return Console.ReadLine();
+            JsonIteractor.JsonWrite(table);
+            MainMenuEvent?.Invoke(table);
+        }
+        public static void OnTurnThePageEvent(ref Table<string, int, Address> table, int direction)
+        {
+            TurnThePageEvent?.Invoke(table, direction);
         }
     }
 }
