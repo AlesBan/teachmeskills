@@ -84,7 +84,5 @@ namespace InterfaceIntro
         {
             MenuEvent?.Invoke(AvailableOptions, printer, mainFunctions);
         }
-
-
     }
 }

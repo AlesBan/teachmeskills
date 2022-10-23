@@ -4,6 +4,7 @@ using TableDataTypes.Helpers;
 using TableDataTypes.JsonIteraction;
 using TableDataTypes.Person;
 using System.Text.Json;
+using TableDataTypes.FileIteraction;
 
 namespace TableDataTypes.Iteraction
 {
@@ -46,11 +47,11 @@ namespace TableDataTypes.Iteraction
         {
             Console.Clear();
             string choice = Constants.AvaliableOptions[choiceIndex];
+            new Logger(choice + " action").Log();
             switch (choice)
             {
                 case "Add line":
-                    MainFunctions.AddNewLineToListFunc(table);
-                    OnMainMenuEvent(table);
+                    OnMainMenuEvent(MainFunctions.AddNewLineToListFunc(table));
                     break;
                 case "OutPut":
                     MainFunctions.OutPutFunc(table);
@@ -73,7 +74,10 @@ namespace TableDataTypes.Iteraction
                     OnTurnThePageEvent(ref table, 0);
                     break;
                 case "Read new file":
-
+                    OnMainMenuEvent(MainFunctions.GetTableFromNewFileFunc());
+                    break;
+                case "Delete item":
+                    OnMainMenuEvent(MainFunctions.DeleteItemFunc(table));
                     break;
             }
         }

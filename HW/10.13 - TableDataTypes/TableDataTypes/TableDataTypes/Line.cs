@@ -9,6 +9,7 @@ namespace TableDataTypes
         public T TTypeVar { get; set; }
         public U UTypeVar { get; set; }
         public V VTypeVar { get; set; }
+        public int Index { get; set; }
         public Line(T tTypeVar, U uTypeVar, V vTypeVar)
         {
             TTypeVar = tTypeVar;
@@ -19,12 +20,16 @@ namespace TableDataTypes
         {
             return $"{TTypeVar} {UTypeVar} {VTypeVar}";
         }
-        public void PrintLine()
+        public void PrintLine(int Count)
         {
+            int indentation = 2;
+            int countLength = Count.ToString().Length;
+            Console.Write($"{Index})");
+            Console.CursorLeft = countLength + indentation;
             Console.Write(TTypeVar);
-            Console.CursorLeft = LongestColumnLenght.LongestLenghtTColumn + 2;
+            Console.CursorLeft = LongestColumnLenght.LongestLenghtTColumn + countLength + indentation * 2;
             Console.Write(UTypeVar);
-            Console.CursorLeft = LongestColumnLenght.LongestLenghtTColumn + LongestColumnLenght.LongestLenghtUColumn + 4;
+            Console.CursorLeft = LongestColumnLenght.LongestLenghtTColumn + LongestColumnLenght.LongestLenghtUColumn + countLength + indentation * 3;
             Console.Write(VTypeVar + "\n");
         }
     }
