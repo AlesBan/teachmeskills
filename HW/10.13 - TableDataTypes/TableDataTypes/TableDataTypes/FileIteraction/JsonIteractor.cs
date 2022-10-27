@@ -11,6 +11,7 @@ namespace TableDataTypes.JsonIteraction
 {
     static class JsonIteractor
     {
+
         public static void JsonWrite(Table<string, int, Address> table)
         {
             FileStream fileStream = File.Open(Constants.DefaultPeopleFilePath, FileMode.OpenOrCreate);
