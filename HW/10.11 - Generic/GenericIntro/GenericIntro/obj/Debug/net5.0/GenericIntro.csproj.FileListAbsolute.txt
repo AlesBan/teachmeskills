@@ -1,0 +1,16 @@
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.11 - Generic\GenericIntro\GenericIntro\bin\Debug\net5.0\GenericIntro.exe
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.11 - Generic\GenericIntro\GenericIntro\bin\Debug\net5.0\GenericIntro.deps.json
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.11 - Generic\GenericIntro\GenericIntro\bin\Debug\net5.0\GenericIntro.runtimeconfig.json
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.11 - Generic\GenericIntro\GenericIntro\bin\Debug\net5.0\GenericIntro.runtimeconfig.dev.json
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.11 - Generic\GenericIntro\GenericIntro\bin\Debug\net5.0\GenericIntro.dll
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.11 - Generic\GenericIntro\GenericIntro\bin\Debug\net5.0\ref\GenericIntro.dll
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.11 - Generic\GenericIntro\GenericIntro\bin\Debug\net5.0\GenericIntro.pdb
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.11 - Generic\GenericIntro\GenericIntro\obj\Debug\net5.0\GenericIntro.csproj.AssemblyReference.cache
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.11 - Generic\GenericIntro\GenericIntro\obj\Debug\net5.0\GenericIntro.GeneratedMSBuildEditorConfig.editorconfig
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.11 - Generic\GenericIntro\GenericIntro\obj\Debug\net5.0\GenericIntro.AssemblyInfoInputs.cache
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.11 - Generic\GenericIntro\GenericIntro\obj\Debug\net5.0\GenericIntro.AssemblyInfo.cs
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.11 - Generic\GenericIntro\GenericIntro\obj\Debug\net5.0\GenericIntro.csproj.CoreCompileInputs.cache
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.11 - Generic\GenericIntro\GenericIntro\obj\Debug\net5.0\GenericIntro.dll
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.11 - Generic\GenericIntro\GenericIntro\obj\Debug\net5.0\ref\GenericIntro.dll
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.11 - Generic\GenericIntro\GenericIntro\obj\Debug\net5.0\GenericIntro.pdb
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.11 - Generic\GenericIntro\GenericIntro\obj\Debug\net5.0\GenericIntro.genruntimeconfig.cache

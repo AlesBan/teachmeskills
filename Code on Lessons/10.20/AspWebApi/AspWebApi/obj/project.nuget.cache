@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "/QUhEYI6LttfeKus6fOvgRKa3l0uNdbyfCj/dvWdwoLnzyjvXBxLQyFEL6nFdDKCr5vgR60Wt0N1e9U0fbXShg==",
+  "success": true,
+  "projectFilePath": "D:\\TeachMeSkills\\teachmeskillsRepository\\Code on Lessons\\10.20\\AspWebApi\\AspWebApi\\AspWebApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

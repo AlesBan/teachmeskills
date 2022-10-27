@@ -1,0 +1,16 @@
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.13\Streams\Streams\bin\Debug\netcoreapp3.1\Streams.exe
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.13\Streams\Streams\bin\Debug\netcoreapp3.1\Streams.deps.json
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.13\Streams\Streams\bin\Debug\netcoreapp3.1\Streams.runtimeconfig.json
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.13\Streams\Streams\bin\Debug\netcoreapp3.1\Streams.runtimeconfig.dev.json
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.13\Streams\Streams\bin\Debug\netcoreapp3.1\Streams.dll
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.13\Streams\Streams\bin\Debug\netcoreapp3.1\Streams.pdb
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.13\Streams\Streams\obj\Debug\netcoreapp3.1\Streams.csproj.AssemblyReference.cache
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.13\Streams\Streams\obj\Debug\netcoreapp3.1\Streams.GeneratedMSBuildEditorConfig.editorconfig
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.13\Streams\Streams\obj\Debug\netcoreapp3.1\Streams.AssemblyInfoInputs.cache
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.13\Streams\Streams\obj\Debug\netcoreapp3.1\Streams.AssemblyInfo.cs
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.13\Streams\Streams\obj\Debug\netcoreapp3.1\Streams.csproj.CoreCompileInputs.cache
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.13\Streams\Streams\obj\Debug\netcoreapp3.1\Streams.dll
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.13\Streams\Streams\obj\Debug\netcoreapp3.1\Streams.pdb
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.13\Streams\Streams\obj\Debug\netcoreapp3.1\Streams.genruntimeconfig.cache
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.13\Streams\Streams\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.13\Streams\Streams\obj\Debug\netcoreapp3.1\Streams.csproj.CopyComplete

@@ -1,0 +1,14 @@
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.11\ExeptionsLesson\ExeptionsLesson\bin\Debug\netcoreapp3.1\ExeptionsLesson.exe
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.11\ExeptionsLesson\ExeptionsLesson\bin\Debug\netcoreapp3.1\ExeptionsLesson.deps.json
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.11\ExeptionsLesson\ExeptionsLesson\bin\Debug\netcoreapp3.1\ExeptionsLesson.runtimeconfig.json
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.11\ExeptionsLesson\ExeptionsLesson\bin\Debug\netcoreapp3.1\ExeptionsLesson.runtimeconfig.dev.json
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.11\ExeptionsLesson\ExeptionsLesson\bin\Debug\netcoreapp3.1\ExeptionsLesson.dll
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.11\ExeptionsLesson\ExeptionsLesson\bin\Debug\netcoreapp3.1\ExeptionsLesson.pdb
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.11\ExeptionsLesson\ExeptionsLesson\obj\Debug\netcoreapp3.1\ExeptionsLesson.csproj.AssemblyReference.cache
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.11\ExeptionsLesson\ExeptionsLesson\obj\Debug\netcoreapp3.1\ExeptionsLesson.GeneratedMSBuildEditorConfig.editorconfig
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.11\ExeptionsLesson\ExeptionsLesson\obj\Debug\netcoreapp3.1\ExeptionsLesson.AssemblyInfoInputs.cache
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.11\ExeptionsLesson\ExeptionsLesson\obj\Debug\netcoreapp3.1\ExeptionsLesson.AssemblyInfo.cs
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.11\ExeptionsLesson\ExeptionsLesson\obj\Debug\netcoreapp3.1\ExeptionsLesson.csproj.CoreCompileInputs.cache
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.11\ExeptionsLesson\ExeptionsLesson\obj\Debug\netcoreapp3.1\ExeptionsLesson.dll
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.11\ExeptionsLesson\ExeptionsLesson\obj\Debug\netcoreapp3.1\ExeptionsLesson.pdb
+D:\TeachMeSkills\teachmeskillsRepository\Code on Lessons\10.11\ExeptionsLesson\ExeptionsLesson\obj\Debug\netcoreapp3.1\ExeptionsLesson.genruntimeconfig.cache
