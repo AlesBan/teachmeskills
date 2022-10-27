@@ -15,19 +15,24 @@ namespace Stack
 
         public T Pop()
         {
-            T item = List[^1];
-            List = List.GetRange(0, List.Count - 1);
+            T item = List[0];
+            List = List.GetRange(1, List.Count - 1);
             return item;
         }
 
         public void Push(T item)
         {
-            List.Add(item);
+            List<T> newlist = new List<T>()
+            {
+                item
+            };
+            newlist.AddRange(List);
+            List = newlist;
         }
 
         public void Print()
         {
-            Console.WriteLine("My stack:\n");
+            Console.WriteLine("\nMy stack:\n");
             int index = 1;
             foreach (T item in List)
             {
