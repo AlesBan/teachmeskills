@@ -15,7 +15,7 @@ namespace WebAPI_10._25DZ
             Name = name;
             Age = age;
         }
-        string IPerson.ToString()
+        public override string ToString()
         {
             return $"Name: {Name}, Age: {Age}";
         }

@@ -16,9 +16,18 @@ namespace WebAPI_10._25DZ.FileIteraction
         {
             string FilePath = MyConfiguration.GetData(config, "FilePath");
             FileStream fileStream = File.Open(FilePath, FileMode.OpenOrCreate);
-            fileStream.SetLength(0);
             StreamWriter streamWriter = new StreamWriter(fileStream);
             string jsonStr = JsonConvert.SerializeObject(person);
+            streamWriter.WriteLine(jsonStr);
+            streamWriter.Flush();
+            fileStream.Close();
+        }
+        public static void JsonWriteList(IConfiguration config, List<Person> personList)
+        {
+            string FilePath = MyConfiguration.GetData(config, "FilePath");
+            FileStream fileStream = File.Open(FilePath, FileMode.OpenOrCreate);
+            StreamWriter streamWriter = new StreamWriter(fileStream);
+            string jsonStr = JsonConvert.SerializeObject(personList);
             streamWriter.WriteLine(jsonStr);
             streamWriter.Flush();
             fileStream.Close();
@@ -31,6 +40,15 @@ namespace WebAPI_10._25DZ.FileIteraction
             Person person = JsonConvert.DeserializeObject<Person>(streamReader.ReadToEnd());
             fileStream.Close();
             return person;
+        }
+        public static IEnumerable<Person> JsonReadList(IConfiguration config)
+        {
+            string FilePath = MyConfiguration.GetData(config, "FilePath");
+            FileStream fileStream = File.Open(FilePath, FileMode.OpenOrCreate);
+            StreamReader reader = new StreamReader(fileStream);
+            IEnumerable<Person> people = JsonConvert.DeserializeObject<IEnumerable<Person>>(reader.ReadToEnd());
+            fileStream.Close();
+            return people;
         }
     }
 }

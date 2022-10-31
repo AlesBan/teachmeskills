@@ -25,14 +25,15 @@ namespace WebAPI_10._25DZ.Controllers
         }
 
         [HttpGet("FileData")]
-        public string GetFileData()
+        public IEnumerable<Person> GetFileData()
         {
-            return JsonIteractor.JsonRead(_config)?.ToString();
+            return JsonIteractor.JsonReadList(_config);
         }
+
         [HttpPut("PutDataInFile")]
         public void PutDataInFile()
         {
-            JsonIteractor.JsonWrite(_config, new Person("Ales", 19));
+            JsonIteractor.JsonWriteList(_config, Constants.people);
         }
     }
 }
