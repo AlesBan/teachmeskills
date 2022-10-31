@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using WebAPI_10._25DZ.FileIteraction;
 using WebAPI_10._25DZ.Helpers;
 using WebAPI_10._25DZ.Interfaces;
 
@@ -13,9 +12,11 @@ namespace WebAPI_10._25DZ.Controllers
     public class HomeControllers : ControllerBase
     {
         private readonly IConfiguration _config;
-        public HomeControllers(IConfiguration config)
+        private readonly IJsonIteractor _jsonIteractor;
+        public HomeControllers(IConfiguration config, IJsonIteractor iteractor)
         {
             _config = config;
+            _jsonIteractor = iteractor;
         }
 
         [HttpGet("FilePath")]
@@ -27,13 +28,13 @@ namespace WebAPI_10._25DZ.Controllers
         [HttpGet("FileData")]
         public IEnumerable<Person> GetFileData()
         {
-            return JsonIteractor.JsonReadList(_config);
+            return _jsonIteractor.JsonReadList(_config);
         }
 
         [HttpPut("PutDataInFile")]
         public void PutDataInFile()
         {
-            JsonIteractor.JsonWriteList(_config, Constants.people);
+            _jsonIteractor.JsonWriteList(_config, Constants.people);
         }
     }
 }

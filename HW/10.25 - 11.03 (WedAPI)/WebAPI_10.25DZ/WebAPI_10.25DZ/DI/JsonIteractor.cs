@@ -8,11 +8,11 @@ using WebAPI_10._25DZ.Interfaces;
 using Newtonsoft.Json;
 using WebAPI_10._25DZ.Helpers;
 
-namespace WebAPI_10._25DZ.FileIteraction
+namespace WebAPI_10._25DZ.DI
 {
-    public static class JsonIteractor
+    public class JsonIteractor : IJsonIteractor
     {
-        public static void JsonWrite(IConfiguration config, Person person)
+        public void JsonWrite(IConfiguration config, Person person)
         {
             string FilePath = MyConfiguration.GetData(config, "FilePath");
             FileStream fileStream = File.Open(FilePath, FileMode.OpenOrCreate);
@@ -22,7 +22,7 @@ namespace WebAPI_10._25DZ.FileIteraction
             streamWriter.Flush();
             fileStream.Close();
         }
-        public static void JsonWriteList(IConfiguration config, List<Person> personList)
+        public void JsonWriteList(IConfiguration config, List<Person> personList)
         {
             string FilePath = MyConfiguration.GetData(config, "FilePath");
             FileStream fileStream = File.Open(FilePath, FileMode.OpenOrCreate);
@@ -32,7 +32,7 @@ namespace WebAPI_10._25DZ.FileIteraction
             streamWriter.Flush();
             fileStream.Close();
         }
-        public static Person JsonRead(IConfiguration config)
+        public Person JsonRead(IConfiguration config)
         {
             string FilePath = MyConfiguration.GetData(config, "FilePath");
             FileStream fileStream = File.Open(FilePath, FileMode.OpenOrCreate);
@@ -41,7 +41,7 @@ namespace WebAPI_10._25DZ.FileIteraction
             fileStream.Close();
             return person;
         }
-        public static IEnumerable<Person> JsonReadList(IConfiguration config)
+        public IEnumerable<Person> JsonReadList(IConfiguration config)
         {
             string FilePath = MyConfiguration.GetData(config, "FilePath");
             FileStream fileStream = File.Open(FilePath, FileMode.OpenOrCreate);
