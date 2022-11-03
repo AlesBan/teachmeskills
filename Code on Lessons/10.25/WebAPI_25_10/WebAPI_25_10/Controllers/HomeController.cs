@@ -19,17 +19,25 @@ namespace WebAPI_25_10.Controllers
             _homeService = homeService;
             _config = config;
         }
-
+         
         [HttpGet("say")]
         public string say()
         {
             return _homeService.SaySMT();
         }
-        [HttpGet("secret-key")]
-        public string GetKey()
+
+        [HttpGet("secret-key/{id:int}")]
+        public ActionResult<ComplexSetting> GetKey(int id, string param)
         {
-            return _config.GetValue<string>("SecterKey");
+            return BadRequest();
         }
+
+        [HttpGet("save-new-data")]
+        public ComplexSetting SaveData(BasicData data)
+        {
+            return _config.GetSection("ComplexSettings").Get<ComplexSetting>();
+        }
+
     }
 
 }
