@@ -1,26 +1,21 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebAPI_25_10.Interfaces;
+using Web_10._27DZ.Interfaces;
+using Web_10._27DZ.PersonEnv;
+using WebAPI_10._25DZ.DI;
 
-namespace WebAPI_25_10
+namespace Web_10._27DZ
 {
     public class Startup
     {
-        private IConfiguration _configuration;
-        public Startup(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-        public void ConfigureServices(IServiceCollection services, IOptions<ComplexSetting> complexSets)
+        public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
             services.AddOpenApiDocument(config =>
@@ -28,12 +23,10 @@ namespace WebAPI_25_10
                 config.Title = "My best site";
             });
 
-            services.AddScoped<IHomeService, HomeService>();
-
-            services.Configure<ComplexSetting>(_configuration.GetSection(ComplexSetting.ConfigPath));
+            services.AddTransient<IJsonIteractor, JsonIteractor>();
+            services.AddTransient<IPeopleStorage, PeopleStorage>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -42,21 +35,18 @@ namespace WebAPI_25_10
             }
 
             app.UseRouting();
-
-
-
             app.UseOpenApi();
-            app.UseSwaggerUi3(config =>
-            {
-                config.DocumentTitle = "MY NEW TITLE";
-                config.DocExpansion = "list";
 
+            app.UseSwaggerUi3(config => 
+            {
+                config.DocumentTitle = " Web_10._27DZ";
+                config.DocExpansion = "list";
             });
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
         }
     }
-    
 }
