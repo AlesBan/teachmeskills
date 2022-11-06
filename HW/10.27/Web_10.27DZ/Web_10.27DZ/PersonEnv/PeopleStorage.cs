@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using PersonEnv;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,66 +11,67 @@ namespace Web_10._27DZ.PersonEnv
 {
     public class PeopleStorage : IPeopleStorage
     {
-        public List<IPerson> innerCol { get; set; }
+        public List<Person> InnerCol { get; set; }
 
         public PeopleStorage()
         {
-            innerCol = new List<IPerson>();
+            InnerCol = new List<Person>();
         }
 
         public int Count
         {
-            get { return innerCol.Count; }
+            get { return InnerCol.Count; }
         }
 
-        public void Add(IPerson item)
+        public void Add(Person item)
         {
-            if (!Contains(item))
-            {
-                innerCol.Add(item);
-            }
-           
+            InnerCol.Add(item);
         }
 
         public void Clear()
         {
-            innerCol.Clear();
+            InnerCol.Clear();
         }
 
-        public bool Contains(IPerson item)
+        public bool Contains(Guid id)
         {
             bool found = false;
 
-            foreach (IPerson it in innerCol.Where(x => x.Equals(item)))
+            foreach (Person it in InnerCol)
             {
-                found = true;
+                if (it.id == id)
+                {
+                    found = true;
+                }
+                
             }
             return found;
         }
 
-        public void Remove(IPerson item)
+        public void Remove(Person item)
         {
-
-            for (int i = 0; i < innerCol.Count; i++)
+            for (int i = 0; i < InnerCol.Count; i++)
             {
-                IPerson curPerson = innerCol[i];
+                Person curPerson = InnerCol[i];
                 if (new PesonSameDimensions().Equals(curPerson, item))
                 {
-                    innerCol.RemoveAt(i);
+                    InnerCol.RemoveAt(i);
                     break;
                 }
             }
         }
 
-        public void UpDate(int index, IPerson item)
+        public void UpDate(Guid id, Person item)
         {
-            for (int i = 0; i < innerCol.Count; i++)
+            foreach (Person person in InnerCol.Where(x => x.id == id).ToList())
             {
-                if (i == index)
-                {
-                    innerCol[i] = item;
-                }
+                InnerCol[InnerCol.IndexOf(person)] = item;
             }
+        }
+
+        public void WriteDataInFile(IJsonIteractor _jsonIteractor, IConfiguration _configuration)
+        {
+            _jsonIteractor.JsonWriteList(_configuration, InnerCol);
         }
     }
 }

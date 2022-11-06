@@ -12,7 +12,7 @@ using Web_10._27DZ.PersonEnv;
 
 namespace Web_10._27DZ.Controllers
 {
-    [Route("People")]
+    [Route("people")]
     public class HomeController : ControllerBase
     {
         private readonly IConfiguration _configuration;
@@ -25,47 +25,67 @@ namespace Web_10._27DZ.Controllers
             _peopleStorage = peopleStorage;
         }
 
-        [HttpPost("PutPeople")]
-        public IActionResult PutPeople()
-        {
-            _jsonIteractor.JsonWriteList(_configuration, Constants.people);
-            return new EmptyResult();
-        }
-
-        [HttpGet("GetPeople")]
+        [HttpGet("all-people")]
         public IActionResult GetPeople()
         {
-            _peopleStorage.innerCol = _jsonIteractor.JsonReadList(_configuration);
+            _peopleStorage.InnerCol = _jsonIteractor.JsonReadList(_configuration);
             return new ObjectResult(_jsonIteractor.JsonReadList(_configuration));
         }
 
-        [HttpGet("{personId:int}")]
-        public IActionResult GetPerson([FromRoute] int personId)
+        [HttpPost("create-new-person")]
+        public IActionResult PutPerson([FromBody] PersonDto personDto)
         {
-            ObjectResult objectResult = new ObjectResult(_jsonIteractor.JsonReadList(_configuration)[personId - 1]);
-            return Ok(objectResult);
+            Person newPerson = new Person(personDto.Name, personDto.Age);
+            _peopleStorage.Add(newPerson);
+            _peopleStorage.WriteDataInFile(_jsonIteractor, _configuration);
+            return Ok(newPerson);
         }
 
-        [HttpDelete("DeletePerson")]
-        public IActionResult DeletePerson([FromRoute] int id)
+        [HttpGet("{id:Guid}")]
+        public IActionResult GetPerson([FromRoute] Guid? id)
         {
-            IPerson person = _peopleStorage.innerCol[id - 1];
-            _peopleStorage.Remove(person);
-            return Ok(person);
-        }
-        [HttpPost("PutPerson")]
-        public IActionResult PutPerson([FromRoute] string Name, [FromRoute] int Age)
-        {
-            _peopleStorage.Add(new Person(Name, Age));
-            return Ok();
+            if (!_peopleStorage.Contains((Guid)id))
+            {
+                return NotFound();
+            }
+            else
+            {
+                ObjectResult objectResult = new ObjectResult(_peopleStorage.InnerCol.Where(x => x.id == id).ToList()[0]);
+                _peopleStorage.WriteDataInFile(_jsonIteractor, _configuration);
+                return Ok(objectResult);
+            }
         }
 
-        [HttpPut("UpdatePerson")]
-        public IActionResult UpdatePerson([FromRoute] int id, [FromRoute] string Name, [FromRoute] int Age)
+        [HttpDelete("{id:Guid}")]
+        public IActionResult DeletePerson([FromRoute] Guid? id)
         {
-            _peopleStorage.UpDate(id, new Person(Name, Age));
-            return Ok();
+            if (!_peopleStorage.Contains((Guid)id))
+            {
+                return NotFound();
+            }
+            else
+            {
+                Person person = _peopleStorage.InnerCol.Where(x => x.id == id).ToList()[0];
+                _peopleStorage.Remove(person);
+                _peopleStorage.WriteDataInFile(_jsonIteractor, _configuration);
+                return Ok(person);
+            }
+        }
 
+        [Route("update-person")]
+        [HttpPut]
+        public IActionResult UpdatePerson([FromBody] Person person)
+        {
+            if (!_peopleStorage.Contains(person.id))
+            {
+                return NotFound();
+            }
+            else
+            {
+                _peopleStorage.UpDate(person.id, new Person(person.Name, person.Age));
+                _peopleStorage.WriteDataInFile(_jsonIteractor, _configuration);
+                return Ok();
+            }
         }
     }
 }

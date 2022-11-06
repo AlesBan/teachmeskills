@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 
 namespace Web_10._27DZ.Interfaces
 {
-    public interface IPerson
+    public interface IPersonDto
     {
-        public Guid id { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
-        public string ToString();
     }
 }

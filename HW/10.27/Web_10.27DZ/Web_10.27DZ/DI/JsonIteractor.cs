@@ -14,10 +14,14 @@ namespace WebAPI_10._25DZ.DI
 {
     public class JsonIteractor : IJsonIteractor
     {
+        private string _filePath { get; set; }
+        public JsonIteractor(IConfiguration config)
+        {
+            _filePath = MyConfiguration.GetData(config, "FilePath");
+        }
         public void JsonWrite(IConfiguration config, Person person)
         {
-            string FilePath = MyConfiguration.GetData(config, "FilePath");
-            FileStream fileStream = File.Open(FilePath, FileMode.OpenOrCreate);
+            FileStream fileStream = File.Open(_filePath, FileMode.OpenOrCreate);
             StreamWriter streamWriter = new StreamWriter(fileStream);
             string jsonStr = JsonConvert.SerializeObject(person);
             streamWriter.WriteLine(jsonStr);
@@ -26,8 +30,8 @@ namespace WebAPI_10._25DZ.DI
         }
         public void JsonWriteList(IConfiguration config, List<Person> personList)
         {
-            string FilePath = MyConfiguration.GetData(config, "FilePath");
-            FileStream fileStream = File.Open(FilePath, FileMode.OpenOrCreate);
+            FileStream fileStream = File.Open(_filePath, FileMode.OpenOrCreate);
+            fileStream.SetLength(0);
             StreamWriter streamWriter = new StreamWriter(fileStream);
             string jsonStr = JsonConvert.SerializeObject(personList);
             streamWriter.WriteLine(jsonStr);
@@ -36,19 +40,17 @@ namespace WebAPI_10._25DZ.DI
         }
         public Person JsonRead(IConfiguration config)
         {
-            string FilePath = MyConfiguration.GetData(config, "FilePath");
-            FileStream fileStream = File.Open(FilePath, FileMode.OpenOrCreate);
+            FileStream fileStream = File.Open(_filePath, FileMode.OpenOrCreate);
             StreamReader streamReader = new StreamReader(fileStream);
             Person person = JsonConvert.DeserializeObject<Person>(streamReader.ReadToEnd());
             fileStream.Close();
             return person;
         }
-        public List<IPerson> JsonReadList(IConfiguration config)
+        public List<Person> JsonReadList(IConfiguration config)
         {
-            string FilePath = MyConfiguration.GetData(config, "FilePath");
-            FileStream fileStream = File.Open(FilePath, FileMode.OpenOrCreate);
+            FileStream fileStream = File.Open(_filePath, FileMode.OpenOrCreate);
             StreamReader reader = new StreamReader(fileStream);
-            List<IPerson> people = JsonConvert.DeserializeObject<List<IPerson>>(reader.ReadToEnd());
+            List<Person> people = JsonConvert.DeserializeObject<List<Person>>(reader.ReadToEnd());
             fileStream.Close();
             return people;
         }
