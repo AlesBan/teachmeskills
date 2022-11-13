@@ -3,7 +3,7 @@ using Web_10._27DZ.Interfaces;
 
 namespace PersonEnv
 {
-    public class Person : IPerson
+    public class Person
     {
         public Guid id { get; set; }
         public string Name { get; set; }

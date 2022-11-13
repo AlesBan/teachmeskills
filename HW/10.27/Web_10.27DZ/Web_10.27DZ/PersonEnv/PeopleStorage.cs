@@ -13,9 +13,10 @@ namespace Web_10._27DZ.PersonEnv
     {
         public List<Person> InnerCol { get; set; }
 
-        public PeopleStorage()
+        public PeopleStorage(IJsonIteractor jsonIteractor, IConfiguration configuration)
         {
             InnerCol = new List<Person>();
+            InnerCol = jsonIteractor.JsonReadList(configuration);
         }
 
         public int Count
@@ -52,8 +53,7 @@ namespace Web_10._27DZ.PersonEnv
         {
             for (int i = 0; i < InnerCol.Count; i++)
             {
-                Person curPerson = InnerCol[i];
-                if (new PesonSameDimensions().Equals(curPerson, item))
+                if (InnerCol[i].id == item.id)
                 {
                     InnerCol.RemoveAt(i);
                     break;
