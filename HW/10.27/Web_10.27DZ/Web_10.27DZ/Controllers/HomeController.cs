@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Web_10._27DZ.DIEnv;
 using Web_10._27DZ.Helpers;
 using Web_10._27DZ.Interfaces;
 using Web_10._27DZ.PersonEnv;
@@ -15,21 +16,18 @@ namespace Web_10._27DZ.Controllers
     [Route("people")]
     public class HomeController : ControllerBase
     {
-        private readonly IConfiguration _configuration;
-        private readonly IJsonIteractor _jsonIteractor;
         private readonly IPeopleStorage _peopleStorage;
+        private readonly DI dI;
         public HomeController(IConfiguration configuration, IJsonIteractor jsonIteractor, IPeopleStorage peopleStorage)
         {
-            _configuration = configuration;
-            _jsonIteractor = jsonIteractor;
             _peopleStorage = peopleStorage;
+            dI = new DI(configuration, jsonIteractor);
         }
 
         [HttpGet("all-people")]
         public IActionResult GetPeople()
         {
-            _peopleStorage.InnerCol = _jsonIteractor.JsonReadList(_configuration);
-            return new ObjectResult(_jsonIteractor.JsonReadList(_configuration));
+            return Ok(_peopleStorage.InnerCol);
         }
 
         [HttpPost("create-new-person")]
@@ -37,7 +35,7 @@ namespace Web_10._27DZ.Controllers
         {
             Person newPerson = new Person(personDto.Name, personDto.Age);
             _peopleStorage.Add(newPerson);
-            _peopleStorage.WriteDataInFile(_jsonIteractor, _configuration);
+            _peopleStorage.Save(dI);
             return Ok(newPerson);
         }
 
@@ -50,9 +48,7 @@ namespace Web_10._27DZ.Controllers
             }
             else
             {
-                ObjectResult objectResult = new ObjectResult(_peopleStorage.InnerCol.Where(x => x.id == id).ToList()[0]);
-                _peopleStorage.WriteDataInFile(_jsonIteractor, _configuration);
-                return Ok(objectResult);
+                return Ok(_peopleStorage.InnerCol.Where(x => x.id == id).ToList()[0]);
             }
         }
 
@@ -67,7 +63,7 @@ namespace Web_10._27DZ.Controllers
             {
                 Person person = _peopleStorage.InnerCol.Where(x => x.id == id).ToList()[0];
                 _peopleStorage.Remove(person);
-                _peopleStorage.WriteDataInFile(_jsonIteractor, _configuration);
+                _peopleStorage.Save(dI);
                 return Ok(person);
             }
         }
@@ -79,11 +75,11 @@ namespace Web_10._27DZ.Controllers
             if (!_peopleStorage.Contains(person.id))
             {
                 return NotFound();
-            }
+            }   
             else
             {
                 _peopleStorage.UpDate(person.id, new Person(person.Name, person.Age));
-                _peopleStorage.WriteDataInFile(_jsonIteractor, _configuration);
+                _peopleStorage.Save(dI);
                 return Ok();
             }
         }

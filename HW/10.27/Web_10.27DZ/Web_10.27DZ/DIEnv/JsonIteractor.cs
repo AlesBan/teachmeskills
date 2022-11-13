@@ -10,7 +10,7 @@ using Web_10._27DZ.Helpers;
 using Web_10._27DZ;
 using PersonEnv;
 
-namespace WebAPI_10._25DZ.DI
+namespace WebAPI_10._25DZ.DIEnv
 {
     public class JsonIteractor : IJsonIteractor
     {

@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Web_10._27DZ.DIEnv;
 using Web_10._27DZ.Interfaces;
 
 namespace Web_10._27DZ.PersonEnv
@@ -69,9 +70,9 @@ namespace Web_10._27DZ.PersonEnv
             }
         }
 
-        public void WriteDataInFile(IJsonIteractor _jsonIteractor, IConfiguration _configuration)
+        public void Save(DI dI)
         {
-            _jsonIteractor.JsonWriteList(_configuration, InnerCol);
+            dI.jsonIteractor.JsonWriteList(dI.configuration, InnerCol);
         }
     }
 }

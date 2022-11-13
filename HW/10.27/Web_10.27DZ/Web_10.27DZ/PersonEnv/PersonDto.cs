@@ -6,7 +6,7 @@ using Web_10._27DZ.Interfaces;
 
 namespace Web_10._27DZ.PersonEnv
 {
-    public class PersonDto : IPersonDto
+    public class PersonDto
     {
         public string Name { get; set; }
         public int Age { get; set; }

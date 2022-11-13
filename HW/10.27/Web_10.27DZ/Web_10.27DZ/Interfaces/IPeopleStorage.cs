@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Web_10._27DZ.DIEnv;
 
 namespace Web_10._27DZ.Interfaces
 {
@@ -16,6 +17,6 @@ namespace Web_10._27DZ.Interfaces
         public bool Contains(Guid id);
         public void Remove(Person item);
         public void UpDate(Guid id, Person item);
-        public void WriteDataInFile(IJsonIteractor _jsonIteractor, IConfiguration _configuration);
+        public void Save(DI dI);
     }
 }
