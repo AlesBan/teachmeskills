@@ -1,25 +1,25 @@
-1. 37
+1. 37 +
 SELECT COUNT(*) FROM Persons
 INNER JOIN Addresses
 ON Persons.AddressId = Addresses.Id
 WHERE City LIKE 'Lake%'
 
-2. 78
+2. 78 +
 SELECT DISTINCT Country FROM Addresses;
 
-3. 14
+3. 14 (11)
 SELECT COUNT(*) FROM Persons
 INNER JOIN PersonsStudySubjects
 ON Persons.Id = PersonsStudySubjects.StudentId
 WHERE Name LIKE 'D%'
 
-4. 14
+4. 14 +
 SELECT COUNT(*) FROM Persons P
 INNER JOIN StudySubjects
 ON P.Id = StudySubjects.ProfessorId
 WHERE P.Name LIKE '%C%'
 
-5. 44
+5. 44 + (40) 
 SELECT COUNT(*) FROM Persons P
 INNER JOIN PersonsStudySubjects
 ON P.Id = PersonsStudySubjects.StudentId
@@ -29,7 +29,7 @@ INNER JOIN Universities U
 ON StudySubjects.UniversityId = U.Id
 WHERE P.Age > 30 AND U.Name LIKE 'Carter - Gusikowski' 
 
-6. 350 - 197 = 53
+6. 350 - 197 = 53 (201)
 SELECT COUNT(*) AS DoesLearning FROM Persons P
 INNER JOIN PersonsStudySubjects
 ON P.Id = PersonsStudySubjects.StudentId
@@ -40,14 +40,14 @@ ON StudySubjects.UniversityId = U.Id
 
 SELECT COUNT(*) FROM Persons;
 
-7. 350 - 25 = 325
+7. 350 - 25 = 325 (326)
 SELECT COUNT(*) AS DoesStudy FROM Persons P
 INNER JOIN StudySubjects
 ON P.Id = StudySubjects.ProfessorId
 
 SELECT COUNT(*) FROM Persons;
 
-8. 6
+8. 6 +
 SELECT P.Name, U.Name, A.City FROM Persons P
 JOIN PersonsStudySubjects
 ON P.Id = PersonsStudySubjects.StudentId
@@ -95,7 +95,7 @@ RIGHT JOIN Universities U
 ON StudySubjects.UniversityId = U.Id
 GROUP BY A.City
 
-12.
+12. 3 (2)
 SELECT COUNT(*) FROM Persons P
 JOIN Addresses A
 ON P.AddressId = A.Id
