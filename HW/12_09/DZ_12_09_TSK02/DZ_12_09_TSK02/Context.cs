@@ -67,13 +67,15 @@ namespace DZ_12_09_TSK02
                 .WithMany(b => b.UserBooks)
                 .HasForeignKey(us => us.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
+        }
 
-            //seeding
-            var authors = Author.Generate(100);
-            var users = User.Generate(30);
-            var books = Book.Generate(100, authors.Select(x => x.AuthorId).ToArray()).ToArray();
+        protected void SeedingNewData(ModelBuilder modelBuilder)
+        {
+            var authors = Author.Generate(5);
+            var users = User.Generate(5);
+            var books = Book.Generate(5, authors.Select(x => x.AuthorId).ToArray()).ToArray();
 
-            var userbooks = UserBook.Generate(100, 
+            var userbooks = UserBook.Generate(5, 
                 users.Select(x => x.UserId).ToArray(), 
                 books.Select(x => x.BookId).ToArray()).ToArray();
             
@@ -81,10 +83,8 @@ namespace DZ_12_09_TSK02
             modelBuilder.Entity<User>().HasData(users);
             modelBuilder.Entity<Book>().HasData(books);
             modelBuilder.Entity<UserBook>().HasData(userbooks);
+        } 
             
-
-        }
-        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
