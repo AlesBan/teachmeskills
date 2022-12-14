@@ -1,78 +1,74 @@
-﻿using Microsoft.Extensions.Configuration;
-using PersonEnv;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Web_10._27DZ.DIEnv;
 using Web_10._27DZ.Interfaces;
 
 namespace Web_10._27DZ.PersonEnv
 {
     public class PeopleStorage : IPeopleStorage
     {
-        public List<Person> InnerCol { get; set; }
+        public List<IPerson> innerCol { get; set; }
 
-        public PeopleStorage(IJsonIteractor jsonIteractor, IConfiguration configuration)
+        public PeopleStorage()
         {
-            InnerCol = new List<Person>();
-            InnerCol = jsonIteractor.JsonReadList(configuration);
+            innerCol = new List<IPerson>();
         }
 
         public int Count
         {
-            get { return InnerCol.Count; }
+            get { return innerCol.Count; }
         }
 
-        public void Add(Person item)
+        public void Add(IPerson item)
         {
-            InnerCol.Add(item);
+            if (!Contains(item))
+            {
+                innerCol.Add(item);
+            }
+           
         }
 
         public void Clear()
         {
-            InnerCol.Clear();
+            innerCol.Clear();
         }
 
-        public bool Contains(Guid id)
+        public bool Contains(IPerson item)
         {
             bool found = false;
 
-            foreach (Person it in InnerCol)
+            foreach (IPerson it in innerCol.Where(x => x.Equals(item)))
             {
-                if (it.id == id)
-                {
-                    found = true;
-                }
-                
+                found = true;
             }
             return found;
         }
 
-        public void Remove(Person item)
+        public void Remove(IPerson item)
         {
-            for (int i = 0; i < InnerCol.Count; i++)
+
+            for (int i = 0; i < innerCol.Count; i++)
             {
-                if (InnerCol[i].id == item.id)
+                IPerson curPerson = innerCol[i];
+                if (new PesonSameDimensions().Equals(curPerson, item))
                 {
-                    InnerCol.RemoveAt(i);
+                    innerCol.RemoveAt(i);
                     break;
                 }
             }
         }
 
-        public void UpDate(Guid id, Person item)
+        public void UpDate(int index, IPerson item)
         {
-            foreach (Person person in InnerCol.Where(x => x.id == id).ToList())
+            for (int i = 0; i < innerCol.Count; i++)
             {
-                InnerCol[InnerCol.IndexOf(person)] = item;
+                if (i == index)
+                {
+                    innerCol[i] = item;
+                }
             }
-        }
-
-        public void Save(DI dI)
-        {
-            dI.jsonIteractor.JsonWriteList(dI.configuration, InnerCol);
         }
     }
 }

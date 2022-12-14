@@ -12,6 +12,6 @@ namespace Web_10._27DZ.Interfaces
         void JsonWrite(IConfiguration config, Person person);
         void JsonWriteList(IConfiguration config, List<Person> personList);
         Person JsonRead(IConfiguration config);
-        List<Person> JsonReadList(IConfiguration config);
+        List<IPerson> JsonReadList(IConfiguration config);
     }
 }
