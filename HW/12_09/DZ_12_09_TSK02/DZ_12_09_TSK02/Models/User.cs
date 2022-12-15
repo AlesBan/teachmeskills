@@ -21,7 +21,7 @@ namespace DZ_12_09_TSK02.Models
             f.RuleFor(x => x.UserId, x => x.Random.Guid());
             f.RuleFor(x => x.FirstName, x => x.Person.FirstName);
             f.RuleFor(x => x.LastName, x => x.Person.LastName);
-            f.RuleFor(x => x.Email, x => x.Random.Word() + x.Random.Number(10000).ToString() + "@example.com"));
+            f.RuleFor(x => x.Email, x => x.Random.Word() + x.Random.Number(10000).ToString() + "@example.com");
             f.RuleFor(x => x.BirthDate, x => x.Person.DateOfBirth);
 
             return f.Generate(n);

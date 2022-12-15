@@ -12,6 +12,7 @@ using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.VisualBasic;
 
 namespace DZ_12_09_TSK02
@@ -28,7 +29,9 @@ namespace DZ_12_09_TSK02
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            var addControllers = services.AddControllers();
+            services.AddAutoMapper(typeof(Startup));
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,7 +41,9 @@ namespace DZ_12_09_TSK02
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseSwagger();
 
+            app.UseSwaggerUi();
             app.UseHttpsRedirection();
 
             app.UseRouting();
