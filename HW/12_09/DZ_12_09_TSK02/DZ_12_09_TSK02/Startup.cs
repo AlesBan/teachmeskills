@@ -31,26 +31,34 @@ namespace DZ_12_09_TSK02
         {
             var addControllers = services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
-            services.AddSwaggerGen();
+            services.AddOpenApiDocument(config =>
+            {
+                config.Title = "My best site";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseSwagger();
-
-            app.UseSwaggerUi();
-            app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseOpenApi();
 
-            app.UseAuthorization();
+            app.UseSwaggerUi3(config => 
+            {
+                config.DocumentTitle = " Web_10._27DZ";
+                config.DocExpansion = "list";
+            });
 
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

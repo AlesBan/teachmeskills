@@ -24,8 +24,6 @@ D:\TeachMeSkills\teachmeskillsRepository\HW\10.27\Web_10.27DZ\Web_10.27DZ\obj\De
 D:\TeachMeSkills\teachmeskillsRepository\HW\10.27\Web_10.27DZ\Web_10.27DZ\obj\Debug\netcoreapp3.1\Web_10.27DZ.MvcApplicationPartsAssemblyInfo.cs
 D:\TeachMeSkills\teachmeskillsRepository\HW\10.27\Web_10.27DZ\Web_10.27DZ\obj\Debug\netcoreapp3.1\Web_10.27DZ.MvcApplicationPartsAssemblyInfo.cache
 D:\TeachMeSkills\teachmeskillsRepository\HW\10.27\Web_10.27DZ\Web_10.27DZ\obj\Debug\netcoreapp3.1\staticwebassets\Web_10.27DZ.StaticWebAssets.Manifest.cache
-D:\TeachMeSkills\teachmeskillsRepository\HW\10.27\Web_10.27DZ\Web_10.27DZ\obj\Debug\netcoreapp3.1\staticwebassets\Web_10.27DZ.StaticWebAssets.xml
-D:\TeachMeSkills\teachmeskillsRepository\HW\10.27\Web_10.27DZ\Web_10.27DZ\obj\Debug\netcoreapp3.1\scopedcss\bundle\Web_10.27DZ.styles.css
 D:\TeachMeSkills\teachmeskillsRepository\HW\10.27\Web_10.27DZ\Web_10.27DZ\obj\Debug\netcoreapp3.1\Web_10.27DZ.RazorTargetAssemblyInfo.cache
 D:\TeachMeSkills\teachmeskillsRepository\HW\10.27\Web_10.27DZ\Web_10.27DZ\obj\Debug\netcoreapp3.1\Web_10.27DZ.csproj.CopyComplete
 D:\TeachMeSkills\teachmeskillsRepository\HW\10.27\Web_10.27DZ\Web_10.27DZ\obj\Debug\netcoreapp3.1\Web_10.27DZ.dll
@@ -33,3 +31,4 @@ D:\TeachMeSkills\teachmeskillsRepository\HW\10.27\Web_10.27DZ\Web_10.27DZ\obj\De
 D:\TeachMeSkills\teachmeskillsRepository\HW\10.27\Web_10.27DZ\Web_10.27DZ\obj\Debug\netcoreapp3.1\Web_10.27DZ.genruntimeconfig.cache
 D:\TeachMeSkills\teachmeskillsRepository\HW\10.27\Web_10.27DZ\Web_10.27DZ\obj\Debug\netcoreapp3.1\Web_10.27DZ.csproj.AssemblyReference.cache
 D:\TeachMeSkills\teachmeskillsRepository\HW\10.27\Web_10.27DZ\Web_10.27DZ\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\TeachMeSkills\teachmeskillsRepository\HW\10.27\Web_10.27DZ\Web_10.27DZ\bin\Debug\netcoreapp3.1\Web_10.27DZ.StaticWebAssets.xml
