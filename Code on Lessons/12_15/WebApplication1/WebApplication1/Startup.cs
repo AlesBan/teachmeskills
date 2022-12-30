@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebApplication1.Filter;
+using WebApplication1.Middleware;
 
 namespace WebApplication1
 {
@@ -24,6 +26,8 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<FactMiddle>();
+            services.AddScoped<TestActionFilterAttribute>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using WebApplication1.Filter;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
@@ -36,9 +37,11 @@ namespace WebApplication1.Controllers
         {
             _logger = logger;
         }
-
+        
+        [TestActionFilterAttribute]
         public IActionResult Index()
         {
+            Console.WriteLine("Action");    
             return View(PersonsDb);
         }
 
