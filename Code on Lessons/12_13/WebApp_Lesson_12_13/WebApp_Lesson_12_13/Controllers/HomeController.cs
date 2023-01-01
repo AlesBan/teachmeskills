@@ -29,7 +29,8 @@ public class HomeController : Controller
     [HttpPost]
     public static IActionResult addPerson(Person person)
     {
-        Persons.Add(person);
+        Persons.Add(person);\
+            
         return View();
     }
     public IActionResult CustomPage()
