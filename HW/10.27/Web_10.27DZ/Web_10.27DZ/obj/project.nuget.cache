@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "I2MtCmmqu8ZoV2iTVOjhgckLxnjTfbuP/dpgAwpmipMw+g4gi33RMWoGimhlJuDloYcUi1UYsgS8TruzzgQPIQ==",
+  "dgSpecHash": "0CUEh7HrWuKQfdUCGaMHnF73fY75pnEPxt5WDIFm+27ny4v9RaVdJlw25NgeKQoyvKXnFWMhpC0QAsQn2q8uTw==",
   "success": true,
   "projectFilePath": "D:\\TeachMeSkills\\teachmeskillsRepository\\HW\\10.27\\Web_10.27DZ\\Web_10.27DZ\\Web_10.27DZ.csproj",
   "expectedPackageFiles": [
@@ -22,7 +22,8 @@
     "C:\\Users\\User\\.nuget\\packages\\nswag.core.yaml\\13.17.0\\nswag.core.yaml.13.17.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\nswag.generation\\13.17.0\\nswag.generation.13.17.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\nswag.generation.aspnetcore\\13.17.0\\nswag.generation.aspnetcore.13.17.0.nupkg.sha512",
-    "C:\\Users\\User\\.nuget\\packages\\yamldotnet\\11.2.1\\yamldotnet.11.2.1.nupkg.sha512"
+    "C:\\Users\\User\\.nuget\\packages\\yamldotnet\\11.2.1\\yamldotnet.11.2.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512"
   ],
   "logs": []
 }
