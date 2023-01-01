@@ -1,0 +1,22 @@
+@model IEnumerable<Person>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var person in Model)
+    {
+        <tr>
+            <th scope="row">1</th>
+            <td>@person.Name</td>
+            <td>@person.Age</td>
+        </tr>
+    }
+    
+    </tbody>
+</table>

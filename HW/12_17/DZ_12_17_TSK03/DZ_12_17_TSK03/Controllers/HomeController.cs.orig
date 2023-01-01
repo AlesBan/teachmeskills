@@ -1,0 +1,45 @@
+﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using DZ_12_17_TSK03.Models;
+
+namespace DZ_12_17_TSK03.Controllers;
+
+public class HomeController : Controller
+{
+    private readonly ILogger<HomeController> _logger;
+
+    public HomeController(ILogger<HomeController> logger)
+    {
+        _logger = logger;
+    }
+
+<<<<<<< HEAD:Code on Lessons/12_13/WebApp_Lesson_12_13/WebApp_Lesson_12_13/Controllers/HomeController.cs
+    [HttpPost]
+    public static IActionResult addPerson(Person person)
+    {
+        Persons.Add(person);\
+            
+        return View();
+    }
+    public IActionResult CustomPage()
+    {
+        return View("Custom");
+    }
+=======
+>>>>>>> main:HW/12_17/DZ_12_17_TSK03/DZ_12_17_TSK03/Controllers/HomeController.cs
+    public IActionResult Index()
+    {
+        return View();
+    }
+
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+}
