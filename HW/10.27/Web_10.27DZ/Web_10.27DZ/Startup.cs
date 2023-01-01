@@ -16,7 +16,7 @@ namespace Web_10._27DZ
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
-        {
+        {   
             services.AddControllers();
             services.AddOpenApiDocument(config =>
             {
