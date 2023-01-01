@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using WebApplication1.Filter;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
@@ -13,18 +14,40 @@ namespace WebApplication1.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        private static IEnumerable<Person> PersonsDb = new List<Person>()
+        {
+            new Person()
+            {
+                Name = "Amogus",
+                Age = 9
+            },
+            new Person()
+            {
+                Name = "Amogus2",
+                Age = 19
+            },
+            new Person()
+            {
+                Name = "Amogus4",
+                Age = 13
+            }
+        };
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
-
+        
+        [TestActionFilterAttribute]
         public IActionResult Index()
         {
-            return View();
+            Console.WriteLine("Action");    
+            return View(PersonsDb);
         }
 
         public IActionResult Privacy()
         {
+            ViewBag.Persons = PersonsDb;
             return View();
         }
 
