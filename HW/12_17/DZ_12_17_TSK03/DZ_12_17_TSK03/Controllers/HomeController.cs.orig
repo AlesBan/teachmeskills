@@ -7,17 +7,33 @@ namespace DZ_12_17_TSK03.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    public static List<Person> Persons = new List<Person>()
+    {
+        new Person()
+        {
+            name = "Abobus",
+            age = 9
+        },
+        new Person()
+        {
+            name = "Ales",
+            age = 19
+        }
+    };
 
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
     }
 
-<<<<<<< HEAD:Code on Lessons/12_13/WebApp_Lesson_12_13/WebApp_Lesson_12_13/Controllers/HomeController.cs
     [HttpPost]
     public static IActionResult addPerson(Person person)
     {
+<<<<<<< HEAD:Code on Lessons/12_13/WebApp_Lesson_12_13/WebApp_Lesson_12_13/Controllers/HomeController.cs
         Persons.Add(person);\
+=======
+        Persons.Add(person);
+>>>>>>> Lessons:HW/12_17/DZ_12_17_TSK03/DZ_12_17_TSK03/Controllers/HomeController.cs
             
         return View();
     }
@@ -25,10 +41,9 @@ public class HomeController : Controller
     {
         return View("Custom");
     }
-=======
->>>>>>> main:HW/12_17/DZ_12_17_TSK03/DZ_12_17_TSK03/Controllers/HomeController.cs
     public IActionResult Index()
     {
+        ViewData["Date"] = DateTime.Now;
         return View();
     }
 
