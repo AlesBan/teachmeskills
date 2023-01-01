@@ -1,8 +1,0 @@
-SELECT AVG(Age) FROM Persons
-INNER JOIN PersonsStudySubjects
-ON Persons.Id = PersonsStudySubjects.StudentId
-INNER JOIN StudySubjects
-ON StudySubjects.Id = PersonsStudySubjects.SubjectId
-INNER JOIN Universities
-ON Universities.Id = StudySubjects.UniversityId
-GROUP BY Universities.Id
