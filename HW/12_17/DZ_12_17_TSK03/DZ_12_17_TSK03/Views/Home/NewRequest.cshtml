@@ -1,0 +1,39 @@
+@model SupportRequestDto
+
+@{
+    Layout = "_Layout";
+    var departmentNames = new string[] { "AmogusDepartment", "ImposterDepartment", "NormalDepartment" };
+}
+
+<div>
+    @using (Html.BeginForm("GetNewRequest", "Home", FormMethod.Post))
+    {
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Request theme</label>
+            @Html.TextAreaFor(m=>m.RequestTheme, new {@class = "form-control"})
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Request description</label>
+            @Html.TextAreaFor(m=>m.RequestDescription, new {@class = "form-control"})
+        </div>
+        <div>
+
+        </div>
+        <label for="exampleFormControlTextarea1" class="form-label">Choose a department</label>
+        @foreach (var name in departmentNames)
+        {
+            <div class="form-check">
+                @Html.RadioButtonFor(m=>m.Department, $"{name}", new {@class = "form-check-input"})
+                <label class="form-check-label" for="flexRadioDefault1">
+                    @name
+                </label>
+            </div>
+        }
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    }
+    
+</div>

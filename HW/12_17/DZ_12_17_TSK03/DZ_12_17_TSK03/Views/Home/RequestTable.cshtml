@@ -1,0 +1,28 @@
+@model IEnumerable<TableRequest>
+
+@{
+    Layout = "_Layout";
+}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Тема запроса</th>
+        <th scope="col">Отдел поддержки</th>
+        <th scope="col">Специалист</th>
+        <th scope="col">Статус</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var request in Model)
+    {
+        <tr>
+            <th scope="row">1</th>
+            <td>@request.RequestTheme</td>
+            <td>@request.DepartmentName</td>
+            <td>@request.SpecialistName</td>
+            <td>@request.Status</td>
+        </tr>
+    }
+    </tbody>
+</table>

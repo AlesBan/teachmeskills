@@ -27,11 +27,11 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public static IActionResult addPerson(Person person)
+    public IActionResult AddPerson(Person person)
     {
-        Persons.Add(person);\
+        Persons.Add(person);
             
-        return View();
+        return View("Custom");
     }
     public IActionResult CustomPage()
     {
