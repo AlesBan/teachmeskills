@@ -1,56 +1,33 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using DZ_12_17_TSK03.Models;
 
-namespace WebApp_Lesson_12_13.Controllers;
-
-public class HomeController : Controller
+namespace DZ_12_17_TSK03.Controllers
 {
-    private readonly ILogger<HomeController> _logger;
-    public static List<Person> Persons = new List<Person>()
+    public class HomeController : Controller
     {
-        new Person()
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
         {
-            name = "Abobus",
-            age = 9
-        },
-        new Person()
-        {
-            name = "Ales",
-            age = 19
+            _logger = logger;
         }
-    };
 
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
-    }
+        public IActionResult Index()
+        {
+            return View();
+        }
+        
 
-    [HttpPost]
-    public static IActionResult addPerson(Person person)
-    {
-        Persons.Add(person);
-            
-        return View();
-    }
-    public IActionResult CustomPage()
-    {
-        return View("Custom");
-    }
-    public IActionResult Index()
-    {
-        ViewData["Date"] = DateTime.Now;
-        return View();
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
     }
 }
